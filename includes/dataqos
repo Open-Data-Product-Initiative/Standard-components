@@ -1,0 +1,39 @@
+<h1 id='data-qos'>Data QoS</h1>
+<p>Data Quality of Service <strong>Object</strong> contains attributes which define the desired and promised quality of the data product from data quality and service quality point of view. </p>
+<h2 id='optional-attributes-and-elements'>Optional attributes and elements</h2>
+<blockquote>
+<p>Example of DataQoS component usage:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+<span class="na">DataQoS</span><span class="pi">:</span>
+  <span class="na">availability</span><span class="pi">:</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">dataquality</span> <span class="c1"># either dataquality or sla</span>
+    <span class="na">unit</span><span class="pi">:</span> <span class="s">level</span> <span class="c1"># if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99</span>
+    <span class="na">objective</span><span class="pi">:</span> <span class="m">95</span>
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">xxxx</span>   <span class="c1"># data quality check format: existing solutions such as:</span>
+      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span> <span class="c1"># inline, yaml, string, reference. Content under "rules:"</span>
+      <span class="na">rules</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">....as code....</span>
+
+
+
+
+</code></pre></div>
+<table><thead>
+<tr>
+<th><div style="width:150px">Element name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SLA</td>
+<td>element</td>
+<td>-</td>
+<td>Binds the SLA related elements and attributes together</td>
+</tr>
+</tbody></table>
+
+<p>If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, <a href="https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues">raise an issue in Github</a></p>

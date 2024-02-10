@@ -10,17 +10,17 @@ Data Quality of Service **Object** contains attributes which define the desired 
 
 DataQoS:
   availability:
-    description: "" # optional description
-    unit: level # if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99
+    description: "Availability SLA level of the data product."
+    unit: integer 
     objective: 95
     monitoring:
-      type: xxxx   # data quality check format: existing solutions such as:
-      format: yaml # inline, yaml, string, reference. Content under "rules:"
+      type: xxxx  
+      format: yaml 
       rules:
         - ....as code....
   coverage:
-    description: "" # optional description
-    unit: percentage # if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99
+    description: ""
+    unit: percentage 
     objective: 100
     monitoring:
       type: SodaCL   # data quality check format: existing solutions such as:

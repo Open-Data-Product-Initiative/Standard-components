@@ -1229,17 +1229,17 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <div class="highlight"><pre class="highlight yaml"><code>
 <span class="na">DataQoS</span><span class="pi">:</span>
   <span class="na">availability</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># optional description</span>
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">level</span> <span class="c1"># if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Availability</span><span class="nv"> </span><span class="s">SLA</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">product."</span>
+    <span class="na">unit</span><span class="pi">:</span> <span class="s">integer</span> 
     <span class="na">objective</span><span class="pi">:</span> <span class="m">95</span>
     <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">xxxx</span>   <span class="c1"># data quality check format: existing solutions such as:</span>
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span> <span class="c1"># inline, yaml, string, reference. Content under "rules:"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">xxxx</span>  
+      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span> 
       <span class="na">rules</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s">....as code....</span>
   <span class="na">coverage</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># optional description</span>
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> <span class="c1"># if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
     <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
     <span class="na">monitoring</span><span class="pi">:</span>
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   <span class="c1"># data quality check format: existing solutions such as:</span>

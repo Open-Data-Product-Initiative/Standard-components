@@ -1,5 +1,5 @@
 ---
-title: Open Data Product Specification Dev | Enabling Data Economy | Open Data Product Initiative
+title: Open Data Product Specification DataQoS trial | Enabling Data Economy | Open Data Product Initiative
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - yml
@@ -33,16 +33,16 @@ meta:
     content: The Open Data Product Specification is a vendor-neutral, open-source machine-readable data product metadata model. It defines the objects and attributes as well as the structure of digital data products. 
 ---
 
-# OPEN DATA PRODUCT SPECIFICATION Dev
+# OPEN DATA PRODUCT SPECIFICATION DataQoS as code trial
 
-## Development version 
+## Experimentation version 
 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here.
 
 The specification is shared under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license. Copyright is held by the creators of the specification: Jarkko Moilanen, Jussi Niilahti and Toni Luhti.
 
 
-**VERSION DEV**
+**VERSION DETAILS**
 
 **Version source:**
 

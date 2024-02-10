@@ -14,8 +14,6 @@ includes:
   - pricing
   - dataops
   - dataaccess
-  - sla
-  - qa
   - license
   - dataholder
   - extensions

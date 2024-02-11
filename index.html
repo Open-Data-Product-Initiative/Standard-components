@@ -1222,6 +1222,10 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </tbody></table>
 <h1 id='data-qos'>Data QoS</h1>
 <p>Data Quality of Service <strong>Object</strong> contains attributes which define the desired and promised quality of the data product from data quality and service quality point of view. </p>
+
+<p>The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include &quot;as code&quot; structure. &quot;As code&quot; refers to Everything as Code philosophy. <a href="https://www.dynatrace.com/news/blog/everything-as-code/">Everything as Code</a> is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and &quot;as code&quot; rules to monitor and verify wanted quality level.  </p>
+
+<p>The remaining 3 indicators General availability, End of support, and End of life are information which in Open Data Product Specification belong to document level defining general features of the data product. (Not implemented in this Trial)</p>
 <h2 id='optional-attributes-and-elements'>Optional attributes and elements</h2>
 <blockquote>
 <p>Example of DataQoS component usage:</p>
@@ -1382,10 +1386,40 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </tr>
 </thead><tbody>
 <tr>
-<td>SLA</td>
+<td>DataQoS</td>
 <td>element</td>
 <td>-</td>
-<td>Binds the SLA related elements and attributes together</td>
+<td>Binds the Data QoS related elements and attributes together</td>
+</tr>
+<tr>
+<td>availability</td>
+<td>element</td>
+<td>-</td>
+<td>The availability of the service/data.</td>
+</tr>
+<tr>
+<td>coverage</td>
+<td>element</td>
+<td>-</td>
+<td>The availability of the service/data.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>max length 256 chars</td>
+<td>Brief description of the indicator</td>
+</tr>
+<tr>
+<td>objective</td>
+<td>integer</td>
+<td>integer</td>
+<td>Minimum threshold level defined by the business based on customer needs</td>
+</tr>
+<tr>
+<td>monitoring</td>
+<td>element</td>
+<td>-</td>
+<td>Binds together &quot;as code&quot; description of the DataQos indicator. Every indicator has monitoring part as well.</td>
 </tr>
 </tbody></table>
 

@@ -96,53 +96,43 @@ product:
     specification: OAS
     format: JSON
     documentationURL: https://swagger.com/petstore.json
-  SLA:
-    updateFrequency:
-      unit: hours
-      value: 1
-    uptime:
-      unit: percentage
-      value: 99
-    responseTime:
-      unit: milliseconds
-      value: 200
-    nullValues:
-      unit: percentage
-      value: 0.01
-    support:
-      company:
-        phoneNumber: ''
-        phoneServiceHours: ''
-        chatURL: ''
-        chatServiceHours: ''
-        chatResponseTime: ''
-        email: ''
-        emailServiceHours: ''
-        emailResponseTime: ''
-        documentationURL: ''
-        guidesURL: ''
-      community:
-        stackoverflowURL: ''
-        forumURL: ''
-        slackURL: ''
-        twitterURL: ''
-    observability:
-      logsURL: https://logs.com
-      dashboardURL: https://dashboard.com
-      uptimeURL: https://uptime.com
-  dataQuality:
-    accuracy: 100
-    completeness: 100
-    consistency: 100
-    timeliness: high
-    validity: 100
-    uniqueness: 100
-    dataQualityAssuranceMethods: Data quality assurance suite of tools and methods
-      include both data quality auditing (DQA) tools designed for use by external
-      audit teams and routine data quality assessment (RDQA) tools designed for capacity
-      building and self-assessment.
-    dataQualityMonitoring: Soda
-    monitoringScriptURL: http://192.168.10.1/soda-petshop.py
+  DataQoS:
+    availability:
+      description: Availability SLA level of the data product.
+      unit: integer 
+      objective: 95
+      monitoring:
+        type: DataDog  
+        format: yaml 
+        rules:
+          - ....as code....
+    coverage:
+      description: ""
+      unit: percentage 
+      objective: 100
+      monitoring:
+        type: SodaCL  
+        format: yaml 
+        rules:
+          - ....as code....
+    conformity:
+      description: "" 
+      unit: percentage 
+      objective: 100
+      monitoring:
+        type: SodaCL  
+        format: yaml
+        rules:
+          - ....as code....
+    completeness:
+      description: "" 
+      unit: percentage 
+      objective: 90
+      monitoring:
+        type: SodaCL   
+        format: yaml
+        rules:
+          - ....as code....
   license:
     scope:
       definition: The purpose of this license is to determine the terms and conditions

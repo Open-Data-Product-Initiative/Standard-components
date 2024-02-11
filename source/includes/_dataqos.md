@@ -14,7 +14,7 @@ DataQoS:
     unit: integer 
     objective: 95
     monitoring:
-      type: xxxx  
+      type: DataDog  
       format: yaml 
       rules:
         - ....as code....
@@ -23,32 +23,136 @@ DataQoS:
     unit: percentage 
     objective: 100
     monitoring:
-      type: SodaCL   # data quality check format: existing solutions such as:
-      format: yaml # inline, yaml, string, reference. Content under "rules:"
+      type: SodaCL  
+      format: yaml 
       rules:
         - ....as code....
   conformity:
-    description: "" # optional description
-    unit: percentage # if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99
+    description: "" 
+    unit: percentage 
     objective: 100
     monitoring:
-      type: SodaCL   # data quality check format: existing solutions such as:
-      format: yaml # inline, yaml, string, reference. Content under "rules:"
+      type: SodaCL  
+      format: yaml
       rules:
         - ....as code....
   completeness:
-    description: "" # optional description
-    unit: percentage # if type is sla, then SLA levels as options: best effort, 90, 95, 97.5, 99, 99.99
-    objective: 100
+    description: "" 
+    unit: percentage 
+    objective: 90
     monitoring:
-      type: SodaCL   # data quality check format: existing solutions such as:
-      format: yaml # inline, yaml, string, reference. Content under "rules:"
+      type: SodaCL   
+      format: yaml
       rules:
         - ....as code....
-
-
-
-
+  accuracy:
+    description: "" 
+    unit: percentage 
+    objective: 99
+    monitoring:
+      type: SodaCL   
+      format: yaml
+      rules:
+        - ....as code....
+  consistency:
+    description: "" 
+    unit: percentage 
+    objective: 100
+    monitoring:
+      type: SodaCL   
+      format: yaml
+      rules:
+        - ....as code....
+  uniqueness:
+    description: "" 
+    unit: percentage 
+    objective: 90
+    monitoring:
+      type: SodaCL   
+      format: yaml
+      rules:
+        - ....as code....
+  throughput:
+    description: "" 
+    unit: percentage 
+    objective: 100
+    monitoring:
+      type: custom   
+      format: yaml
+      rules:
+        - ....as code....
+  errorRate:
+    description: "" 
+    unit: percentage 
+    objective: 100
+    monitoring:
+      type: custom   
+      format: yaml
+      rules:
+        - ....as code....
+  retention:
+      description: "" 
+      unit: percentage 
+      objective: 100
+      monitoring:
+        type: custom   
+        format: yaml
+        rules:
+          - ....as code....
+  frequency:
+      description: "" 
+      unit: percentage 
+      objective: 100
+      monitoring:
+        type: custom   
+        format: yaml
+        rules:
+          - ....as code....
+  latency:
+      description: "" 
+      unit: percentage 
+      objective: 100
+      monitoring:
+        type: custom   
+        format: yaml
+        rules:
+          - ....as code....
+  timeToDetect:
+      description: "" 
+      unit: minute 
+      objective: 5
+      monitoring:
+        type: custom   
+        format: yaml
+        rules:
+          - ....as code....
+  timeToNotify:
+      description: "" 
+      unit: minute 
+      objective: 60
+      monitoring:
+        type: SodaCL   
+        format: yaml
+        rules:
+          - ....as code....
+  timeToRepair:
+      description: "" 
+      unit: minute 
+      objective: 120
+      monitoring:
+        type: SodaCL   
+        format: yaml
+        rules:
+          - ....as code....
+   timeliness:
+      description: "" 
+      unit: minute 
+      objective: 120
+      monitoring:
+        type: SodaCL   
+        format: yaml
+        rules:
+          - ....as code....
 ```
 
 | <div style="width:150px">Element name</div>   | Type  | Options  | Description  |

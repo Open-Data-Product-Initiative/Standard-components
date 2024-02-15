@@ -10,6 +10,8 @@ The remaining 3 indicators General availability, End of support, and End of life
 
 In this trial mandatory stucture elements are not defined and everyhing is marked as optional including the DataQoS object. Should it be mandatory and to what extend is a good questions and is another excercise. 
 
+**You choose the indicators from 16 options which matches your needs. No need to use all.**
+
 ## Optional attributes and elements
 
 > Example of DataQoS component usage:

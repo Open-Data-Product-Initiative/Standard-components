@@ -46,10 +46,10 @@ DataQoS:
     description: "" 
     monitoring:
       type: OpenSLO
-      objectives:
-        - displayName: Total Errors
-          target: 0.98
       spec: # inside the spec we use OpenSLO standard, https://github.com/openslo/openslo
+        objectives:
+          - displayName: Total Errors
+            target: 0.98
         ratioMetric:
           counter: true
           good:
@@ -72,15 +72,31 @@ DataQoS:
 | <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | DataQoS | element | - | Binds the Data QoS related elements and attributes together |
+
+| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+|---|---|---|---|
 | availability | element | - | The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability |
-| coverage | element | - | All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset. |
+
+| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+|---|---|---|---|
 | conformity | element | - | Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide. |
+
+| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+|---|---|---|---|
 | completeness | element | - | Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset. |
+
+| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+|---|---|---|---|
+| errorRate | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
+
+| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+|---|---|---|---|
+| coverage | element | - | All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset. |
 | accuracy | element | - | The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec. |
 | consistency | element | - | Data should retain consistent content across data stores. Consistency ensures that data values, formats, and definitions in one group match those in another group. |
 | uniqueness | element | - | How much data can be duplicated? It supports the idea that no record or attribute is recorded more than once. Uniqueness means each record and attribute should be one-of-a-kind, aiming for a single, unique data entry |
 | throughPut | element | - | Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time. |
-| errorRate | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
+
 | retention | element | - | How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints. |
 | frequency | element | - |How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates. |
 | latency | element | - | Measures the time between the production of the data and its availability for consumption. |

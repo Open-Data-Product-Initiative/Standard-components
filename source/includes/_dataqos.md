@@ -2,7 +2,7 @@
 
 Data Quality of Service **Object** contains attributes which define the desired and promised quality of the data product from data quality and service quality point of view. 
 
-The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include "as code" structure. "As code" refers to Everything as Code philosophy. [Everything as Code](https://www.dynatrace.com/news/blog/everything-as-code/) is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and "as code" rules to monitor and verify wanted quality level.  
+The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include "as code" structure. "As code" refers to Everything as Code philosophy. [Everything as Code](https://www.dynatrace.com/news/blog/everything-as-code/) is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and "as code" spec to monitor and verify wanted quality level.  
 
 ![Indicator Schema](images/indicator.jpg)
 
@@ -24,7 +24,7 @@ DataQoS:
     monitoring:
       type: SodaCL  
       format: yaml
-      rules:
+      spec:
         - gender: matches("^(Male|Female|Other)$")
         - age_band: matches("^\\d{2}-\\d{2}$")  # Assuming age bands are in the format 20-29, 30-39, etc.
   completeness:
@@ -34,13 +34,52 @@ DataQoS:
     monitoring:
       type: SodaCL   
       format: yaml
-      rules:
+      spec:
         - for each column:
             name: [member_id, gender, age_band]
             checks:
               - not null:
                   warn: when > 5% # Warn if more than 5% of records are null
                   fail: when > 10% # Fail if more than 10% of records are null
+  errorRate:
+    description: "" 
+    unit: percentage 
+    objective: 0.98
+    monitoring:
+      spec: # here we use OpenSLO standard
+        ratioMetric:
+          counter: true
+          good:
+            metricSource:
+              type: Prometheus
+              metricSourceRef: prometheus-datasource
+              spec:
+                query: sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})
+          total:
+            metricSource:
+              type: Prometheus
+              metricSourceRef: prometheus-datasource
+              spec:
+                query: localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}  
+  
+  accuracy:
+    description: "" 
+    unit: percentage 
+    objective: 99
+    monitoring:
+      type: SodaCL   
+      format: yaml
+      spec:
+        - ....as code....
+  consistency:
+    description: "" 
+    unit: percentage 
+    objective: 100
+    monitoring:
+      type: SodaCL   
+      format: yaml
+      spec:
+        - ....as code....
   uniqueness:
     description: "" 
     unit: percentage 
@@ -48,7 +87,7 @@ DataQoS:
     monitoring:
       type: SodaCL   
       format: yaml
-      rules:
+      spec:
         - member_id: unique
   
 ```
@@ -60,7 +99,7 @@ DataQoS:
 | coverage | element | - | All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset. |
 | conformity | element | - | Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide. |
 | completeness | element | - | Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset. |
-| accuracy | element | - | The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business rules. |
+| accuracy | element | - | The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec. |
 | consistency | element | - | Data should retain consistent content across data stores. Consistency ensures that data values, formats, and definitions in one group match those in another group. |
 | uniqueness | element | - | How much data can be duplicated? It supports the idea that no record or attribute is recorded more than once. Uniqueness means each record and attribute should be one-of-a-kind, aiming for a single, unique data entry |
 | throughPut | element | - | Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time. |
@@ -76,8 +115,8 @@ DataQoS:
 | unit | string | one of: minute, hour, day, month, percentage | Measurement unit. |
 | objective | integer | integer | Minimum threshold level defined by the business based on customer needs. |
 | monitoring | element | - | Binds together "as code" description of the DataQos indicator. Every indicator has monitoring part as well. |
-| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual rules content  |
-| format | string | one of: string, yaml | Value indicates in which format the rules will be given. |
-| rules | string | - | The quality rules can be encoded as a string or as inline YAML. |
+| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
+| format | string | one of: string, yaml | Value indicates in which format the spec will be given. |
+| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |
 
 If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, [raise an issue in Github](https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues)

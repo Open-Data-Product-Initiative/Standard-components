@@ -1415,15 +1415,49 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>-</td>
 <td>Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time.</td>
 </tr>
+<tr>
+<td>retention</td>
+<td>element</td>
+<td>-</td>
+<td>How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints.</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>element</td>
+<td>-</td>
+<td>How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates.</td>
+</tr>
+<tr>
+<td>latency</td>
+<td>element</td>
+<td>-</td>
+<td>Measures the time between the production of the data and its availability for consumption.</td>
+</tr>
+<tr>
+<td>timeToDetect</td>
+<td>element</td>
+<td>-</td>
+<td>How fast can you detect a problem? How fast do you guarantee the detection of the problem?</td>
+</tr>
+<tr>
+<td>timeToNotify</td>
+<td>element</td>
+<td>-</td>
+<td>Once you see a problem, how much time do you need to notify your users?</td>
+</tr>
+<tr>
+<td>timeToRepair</td>
+<td>element</td>
+<td>-</td>
+<td>How long do you need to fix the issue once it is detected?</td>
+</tr>
+<tr>
+<td>timeliness</td>
+<td>element</td>
+<td>-</td>
+<td>The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed</td>
+</tr>
 </tbody></table>
-
-<p>| retention | element | - | How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints. |
-| frequency | element | - |How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates. |
-| latency | element | - | Measures the time between the production of the data and its availability for consumption. |
-| timeToDetect | element | - | How fast can you detect a problem? How fast do you guarantee the detection of the problem?  |
-| timeToNotify | element | - | Once you see a problem, how much time do you need to notify your users?  |
-| timeToRepair | element | - | How long do you need to fix the issue once it is detected?  |
-| timeliness | element | - | The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed |</p>
 
 <p>If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, <a href="https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues">raise an issue in Github</a></p>
 <h1 id='data-licensing'>Data Licensing</h1>

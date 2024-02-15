@@ -103,7 +103,7 @@ DataQoS:
 | consistency | element | - | Data should retain consistent content across data stores. Consistency ensures that data values, formats, and definitions in one group match those in another group. |
 | uniqueness | element | - | How much data can be duplicated? It supports the idea that no record or attribute is recorded more than once. Uniqueness means each record and attribute should be one-of-a-kind, aiming for a single, unique data entry |
 | throughPut | element | - | Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time. |
-| errorRate | element | - | How often will your data have errors, and over what period? What is your tolerance for those errors? |
+| errorRate | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 | retention | element | - | How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints. |
 | frequency | element | - |How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates. |
 | latency | element | - | Measures the time between the production of the data and its availability for consumption. |

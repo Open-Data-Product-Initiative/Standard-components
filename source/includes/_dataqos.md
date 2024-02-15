@@ -46,7 +46,9 @@ DataQoS:
     unit: percentage 
     objective: 0.98
     monitoring:
-      spec: # here we use OpenSLO standard, https://github.com/openslo/openslo
+      type: OpenSLO
+      format: yaml
+      spec: # inside the spec we use OpenSLO standard, https://github.com/openslo/openslo
         ratioMetric:
           counter: true
           good:

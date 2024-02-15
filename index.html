@@ -391,6 +391,9 @@
                   <li>
                     <a href="#optional-attributes-and-elements" class="toc-h2 toc-link" data-title="Optional attributes and elements">Optional attributes and elements</a>
                   </li>
+                  <li>
+                    <a href="#not-yet-in-example-or-work-in-progress" class="toc-h2 toc-link" data-title="Not yet in example or work in progress....">Not yet in example or work in progress....</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1289,7 +1292,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </code></pre></div>
 <table><thead>
 <tr>
-<th><div style="width:150px">Element name</div></th>
+<th><div style="width:150px">Indicator name</div></th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
@@ -1305,7 +1308,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 
 <table><thead>
 <tr>
-<th><div style="width:150px">Element name</div></th>
+<th><div style="width:150px">Indicator name</div></th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
@@ -1321,7 +1324,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 
 <table><thead>
 <tr>
-<th><div style="width:150px">Element name</div></th>
+<th><div style="width:150px">Indicator name</div></th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
@@ -1337,7 +1340,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 
 <table><thead>
 <tr>
-<th><div style="width:150px">Element name</div></th>
+<th><div style="width:150px">Indicator name</div></th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
@@ -1353,7 +1356,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 
 <table><thead>
 <tr>
-<th><div style="width:150px">Element name</div></th>
+<th><div style="width:150px">Indicator name</div></th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
@@ -1367,9 +1370,17 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </tr>
 </tbody></table>
 
+<p>| <div style="width:150px">Common elements used in all above</div>   | Type  | Options  | Description  |
+| description | string | max length 256 chars | Brief description of the indicator |</p>
+
+<p>| objectives | array | array | Contains both name and target value. See example.  Adopted from OpenSLO.|
+| monitoring | element | - | Binds together &quot;as code&quot; description of the DataQos indicator. Every indicator has monitoring part as well. |
+| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, OpenSLO, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
+| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |</p>
+<h2 id='not-yet-in-example-or-work-in-progress'>Not yet in example or work in progress....</h2>
 <table><thead>
 <tr>
-<th><div style="width:150px">Element name</div></th>
+<th><div style="width:150px">Indicator name</div></th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
@@ -1413,14 +1424,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 | timeToDetect | element | - | How fast can you detect a problem? How fast do you guarantee the detection of the problem?  |
 | timeToNotify | element | - | Once you see a problem, how much time do you need to notify your users?  |
 | timeToRepair | element | - | How long do you need to fix the issue once it is detected?  |
-| timeliness | element | - | The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed |
-| description | string | max length 256 chars | Brief description of the indicator |
-| unit | string | one of: minute, hour, day, month, percentage | Measurement unit. |
-| objective | integer | integer | Minimum threshold level defined by the business based on customer needs. |
-| monitoring | element | - | Binds together &quot;as code&quot; description of the DataQos indicator. Every indicator has monitoring part as well. |
-| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
-| format | string | one of: string, yaml | Value indicates in which format the spec will be given. |
-| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |</p>
+| timeliness | element | - | The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed |</p>
 
 <p>If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, <a href="https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues">raise an issue in Github</a></p>
 <h1 id='data-licensing'>Data Licensing</h1>

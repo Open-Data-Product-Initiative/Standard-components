@@ -1265,7 +1265,9 @@ The YAML examples are not based on any real data product, but exemplify the usag
     <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
     <span class="na">objective</span><span class="pi">:</span> <span class="m">0.98</span>
     <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># here we use OpenSLO standard, https://github.com/openslo/openslo</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
+      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
         <span class="na">ratioMetric</span><span class="pi">:</span>
           <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
           <span class="na">good</span><span class="pi">:</span>

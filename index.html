@@ -1236,24 +1236,6 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
 <span class="na">DataQoS</span><span class="pi">:</span>
-  <span class="na">availability</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s">Availability SLA level of the data product.</span>
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">integer</span> 
-    <span class="na">objective</span><span class="pi">:</span> <span class="m">95</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">DataDog</span>  
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span> 
-      <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">coverage</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-    <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span> 
-      <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
   <span class="na">conformity</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
@@ -1262,7 +1244,8 @@ The YAML examples are not based on any real data product, but exemplify the usag
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
       <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
       <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
+        <span class="pi">-</span> <span class="na">gender</span><span class="pi">:</span> <span class="s">matches("^(Male|Female|Other)$")</span>
+        <span class="pi">-</span> <span class="na">age_band</span><span class="pi">:</span> <span class="s">matches("^\\d{2}-\\d{2}$")</span>  <span class="c1"># Assuming age bands are in the format 20-29, 30-39, etc.</span>
   <span class="na">completeness</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
@@ -1271,25 +1254,12 @@ The YAML examples are not based on any real data product, but exemplify the usag
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
       <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
       <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">accuracy</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-    <span class="na">objective</span><span class="pi">:</span> <span class="m">99</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">consistency</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-    <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
+        <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
+            <span class="na">checks</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
+                  <span class="na">warn</span><span class="pi">:</span> <span class="s">when &gt; 5%</span> <span class="c1"># Warn if more than 5% of records are null</span>
+                  <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 10%</span> <span class="c1"># Fail if more than 10% of records are null</span>
   <span class="na">uniqueness</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
@@ -1298,88 +1268,8 @@ The YAML examples are not based on any real data product, but exemplify the usag
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
       <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
       <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">throughput</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-    <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">errorRate</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-    <span class="na">objective</span><span class="pi">:</span> <span class="m">0.1</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">retention</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">frequency</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">hour</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">1</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">latency</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">timeToDetect</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">minute</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">5</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">timeToNotify</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">minute</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">60</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
-  <span class="na">timeToRepair</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">minute</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">120</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">custom</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
-   <span class="na">timeliness</span><span class="pi">:</span>
-      <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">minute</span> 
-      <span class="na">objective</span><span class="pi">:</span> <span class="m">120</span>
-      <span class="na">monitoring</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">rules</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s">....as code....</span>
+        <span class="pi">-</span> <span class="na">member_id</span><span class="pi">:</span> <span class="s">unique</span>
+
 </code></pre></div>
 <table><thead>
 <tr>

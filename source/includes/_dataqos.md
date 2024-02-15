@@ -39,8 +39,7 @@ DataQoS:
             name: [member_id, gender, age_band]
             checks:
               - not null:
-                  warn: when > 5% # Warn if more than 5% of records are null
-                  fail: when > 10% # Fail if more than 10% of records are null
+                  fail: when > 2% # Fail if more than 2% of records are null
   errorRate:
     description: "" 
     monitoring:

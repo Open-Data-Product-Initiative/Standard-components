@@ -19,21 +19,21 @@ In this trial mandatory stucture elements are not defined and everyhing is marke
 DataQoS:
   conformity:
     description: "" 
-    unit: percentage 
-    objective: 100
     monitoring:
       type: SodaCL  
-      format: yaml
+      objectives:
+        - displayName: Conformity
+          target: 90
       spec:
         - gender: matches("^(Male|Female|Other)$")
         - age_band: matches("^\\d{2}-\\d{2}$")  # Assuming age bands are in the format 20-29, 30-39, etc.
   completeness:
-    description: "" 
-    unit: percentage 
-    objective: 90
+    description: ""
     monitoring:
-      type: SodaCL   
-      format: yaml
+      type: SodaCL 
+      objectives:
+      - displayName: Completeness
+        target: 98
       spec:
         - for each column:
             name: [member_id, gender, age_band]
@@ -43,11 +43,11 @@ DataQoS:
                   fail: when > 10% # Fail if more than 10% of records are null
   errorRate:
     description: "" 
-    unit: percentage 
-    objective: 0.98
     monitoring:
       type: OpenSLO
-      format: yaml
+      objectives:
+        - displayName: Total Errors
+          target: 0.98
       spec: # inside the spec we use OpenSLO standard, https://github.com/openslo/openslo
         ratioMetric:
           counter: true
@@ -64,33 +64,7 @@ DataQoS:
               spec:
                 query: localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}  
   
-  accuracy:
-    description: "" 
-    unit: percentage 
-    objective: 99
-    monitoring:
-      type: SodaCL   
-      format: yaml
-      spec:
-        - ....as code....
-  consistency:
-    description: "" 
-    unit: percentage 
-    objective: 100
-    monitoring:
-      type: SodaCL   
-      format: yaml
-      spec:
-        - ....as code....
-  uniqueness:
-    description: "" 
-    unit: percentage 
-    objective: 90
-    monitoring:
-      type: SodaCL   
-      format: yaml
-      spec:
-        - member_id: unique
+  
   
 ```
 

@@ -71,23 +71,23 @@ DataQoS:
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
-| DataQoS | element | - | Binds the Data QoS related elements and attributes together |
+| **DataQoS** | element | - | Binds the Data QoS related elements and attributes together |
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
-| availability | element | - | The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability |
+| **availability** | element | - | The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability |
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
-| conformity | element | - | Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide. |
+| **conformity** | element | - | Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide. |
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
-| completeness | element | - | Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset. |
+| **completeness** | element | - | Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset. |
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
-| errorRate | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
+| **errorRate** | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 
 
 | <div style="width:150px">Common elements used in all above</div>   | Type  | Options  | Description  |

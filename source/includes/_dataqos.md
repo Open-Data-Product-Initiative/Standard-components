@@ -85,7 +85,9 @@ DataQoS:
 |---|---|---|---|
 | **errorRate** | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 
-| <div style="width:150px">Common elements</div>   | Type  | Options  | Description  |
+### Additional common unified fields used all above indicators
+
+| <div style="width:150px">Common unified fields</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | **description** | string | max length 256 chars | Brief description of the indicator |
 | **objectives** | array | array | Contains both name and target value. See example.  Adopted from OpenSLO.|
@@ -93,7 +95,7 @@ DataQoS:
 | **type** | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, OpenSLO, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
 | **spec** | string | - | The indicator spec can be encoded as a string or as inline YAML. |
 
-## Not yet in example or work in progress....
+### Not yet in example or work in progress....
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|

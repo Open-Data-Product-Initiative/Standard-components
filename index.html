@@ -1265,10 +1265,10 @@ The YAML examples are not based on any real data product, but exemplify the usag
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">monitoring</span><span class="pi">:</span>
       <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
-      <span class="na">objectives</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Total Errors</span>
-          <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
       <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
+        <span class="na">objectives</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Total Errors</span>
+            <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
         <span class="na">ratioMetric</span><span class="pi">:</span>
           <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
           <span class="na">good</span><span class="pi">:</span>
@@ -1301,29 +1301,85 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>-</td>
 <td>Binds the Data QoS related elements and attributes together</td>
 </tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th><div style="width:150px">Element name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>availability</td>
 <td>element</td>
 <td>-</td>
 <td>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td>coverage</td>
-<td>element</td>
-<td>-</td>
-<td>All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset.</td>
+<th><div style="width:150px">Element name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
 <tr>
 <td>conformity</td>
 <td>element</td>
 <td>-</td>
 <td>Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide.</td>
 </tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th><div style="width:150px">Element name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>completeness</td>
 <td>element</td>
 <td>-</td>
 <td>Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th><div style="width:150px">Element name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorRate</td>
+<td>element</td>
+<td>-</td>
+<td>Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th><div style="width:150px">Element name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>coverage</td>
+<td>element</td>
+<td>-</td>
+<td>All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset.</td>
 </tr>
 <tr>
 <td>accuracy</td>
@@ -1349,97 +1405,22 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>-</td>
 <td>Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time.</td>
 </tr>
-<tr>
-<td>errorRate</td>
-<td>element</td>
-<td>-</td>
-<td>Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?</td>
-</tr>
-<tr>
-<td>retention</td>
-<td>element</td>
-<td>-</td>
-<td>How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints.</td>
-</tr>
-<tr>
-<td>frequency</td>
-<td>element</td>
-<td>-</td>
-<td>How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates.</td>
-</tr>
-<tr>
-<td>latency</td>
-<td>element</td>
-<td>-</td>
-<td>Measures the time between the production of the data and its availability for consumption.</td>
-</tr>
-<tr>
-<td>timeToDetect</td>
-<td>element</td>
-<td>-</td>
-<td>How fast can you detect a problem? How fast do you guarantee the detection of the problem?</td>
-</tr>
-<tr>
-<td>timeToNotify</td>
-<td>element</td>
-<td>-</td>
-<td>Once you see a problem, how much time do you need to notify your users?</td>
-</tr>
-<tr>
-<td>timeToRepair</td>
-<td>element</td>
-<td>-</td>
-<td>How long do you need to fix the issue once it is detected?</td>
-</tr>
-<tr>
-<td>timeliness</td>
-<td>element</td>
-<td>-</td>
-<td>The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed</td>
-</tr>
-<tr>
-<td>description</td>
-<td>string</td>
-<td>max length 256 chars</td>
-<td>Brief description of the indicator</td>
-</tr>
-<tr>
-<td>unit</td>
-<td>string</td>
-<td>one of: minute, hour, day, month, percentage</td>
-<td>Measurement unit.</td>
-</tr>
-<tr>
-<td>objective</td>
-<td>integer</td>
-<td>integer</td>
-<td>Minimum threshold level defined by the business based on customer needs.</td>
-</tr>
-<tr>
-<td>monitoring</td>
-<td>element</td>
-<td>-</td>
-<td>Binds together &quot;as code&quot; description of the DataQos indicator. Every indicator has monitoring part as well.</td>
-</tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>max length 50 chars</td>
-<td>Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content</td>
-</tr>
-<tr>
-<td>format</td>
-<td>string</td>
-<td>one of: string, yaml</td>
-<td>Value indicates in which format the spec will be given.</td>
-</tr>
-<tr>
-<td>spec</td>
-<td>string</td>
-<td>-</td>
-<td>The quality spec can be encoded as a string or as inline YAML.</td>
-</tr>
 </tbody></table>
+
+<p>| retention | element | - | How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints. |
+| frequency | element | - |How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates. |
+| latency | element | - | Measures the time between the production of the data and its availability for consumption. |
+| timeToDetect | element | - | How fast can you detect a problem? How fast do you guarantee the detection of the problem?  |
+| timeToNotify | element | - | Once you see a problem, how much time do you need to notify your users?  |
+| timeToRepair | element | - | How long do you need to fix the issue once it is detected?  |
+| timeliness | element | - | The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed |
+| description | string | max length 256 chars | Brief description of the indicator |
+| unit | string | one of: minute, hour, day, month, percentage | Measurement unit. |
+| objective | integer | integer | Minimum threshold level defined by the business based on customer needs. |
+| monitoring | element | - | Binds together &quot;as code&quot; description of the DataQos indicator. Every indicator has monitoring part as well. |
+| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
+| format | string | one of: string, yaml | Value indicates in which format the spec will be given. |
+| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |</p>
 
 <p>If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, <a href="https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues">raise an issue in Github</a></p>
 <h1 id='data-licensing'>Data Licensing</h1>

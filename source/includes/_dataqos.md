@@ -17,24 +17,6 @@ In this trial mandatory stucture elements are not defined and everyhing is marke
 ```yml
 
 DataQoS:
-  availability:
-    description: Availability SLA level of the data product.
-    unit: integer 
-    objective: 95
-    monitoring:
-      type: DataDog  
-      format: yaml 
-      rules:
-        - ....as code....
-  coverage:
-    description: ""
-    unit: percentage 
-    objective: 100
-    monitoring:
-      type: SodaCL  
-      format: yaml 
-      rules:
-        - ....as code....
   conformity:
     description: "" 
     unit: percentage 
@@ -43,7 +25,8 @@ DataQoS:
       type: SodaCL  
       format: yaml
       rules:
-        - ....as code....
+        - gender: matches("^(Male|Female|Other)$")
+        - age_band: matches("^\\d{2}-\\d{2}$")  # Assuming age bands are in the format 20-29, 30-39, etc.
   completeness:
     description: "" 
     unit: percentage 
@@ -52,25 +35,12 @@ DataQoS:
       type: SodaCL   
       format: yaml
       rules:
-        - ....as code....
-  accuracy:
-    description: "" 
-    unit: percentage 
-    objective: 99
-    monitoring:
-      type: SodaCL   
-      format: yaml
-      rules:
-        - ....as code....
-  consistency:
-    description: "" 
-    unit: percentage 
-    objective: 100
-    monitoring:
-      type: SodaCL   
-      format: yaml
-      rules:
-        - ....as code....
+        - for each column:
+            name: [member_id, gender, age_band]
+            checks:
+              - not null:
+                  warn: when > 5% # Warn if more than 5% of records are null
+                  fail: when > 10% # Fail if more than 10% of records are null
   uniqueness:
     description: "" 
     unit: percentage 
@@ -79,88 +49,8 @@ DataQoS:
       type: SodaCL   
       format: yaml
       rules:
-        - ....as code....
-  throughput:
-    description: "" 
-    unit: percentage 
-    objective: 100
-    monitoring:
-      type: custom   
-      format: yaml
-      rules:
-        - ....as code....
-  errorRate:
-    description: "" 
-    unit: percentage 
-    objective: 0.1
-    monitoring:
-      type: custom   
-      format: yaml
-      rules:
-        - ....as code....
-  retention:
-      description: "" 
-      unit: percentage 
-      objective: 100
-      monitoring:
-        type: custom   
-        format: yaml
-        rules:
-          - ....as code....
-  frequency:
-      description: "" 
-      unit: hour 
-      objective: 1
-      monitoring:
-        type: custom   
-        format: yaml
-        rules:
-          - ....as code....
-  latency:
-      description: "" 
-      unit: percentage 
-      objective: 100
-      monitoring:
-        type: custom   
-        format: yaml
-        rules:
-          - ....as code....
-  timeToDetect:
-      description: "" 
-      unit: minute 
-      objective: 5
-      monitoring:
-        type: custom   
-        format: yaml
-        rules:
-          - ....as code....
-  timeToNotify:
-      description: "" 
-      unit: minute 
-      objective: 60
-      monitoring:
-        type: custom   
-        format: yaml
-        rules:
-          - ....as code....
-  timeToRepair:
-      description: "" 
-      unit: minute 
-      objective: 120
-      monitoring:
-        type: custom   
-        format: yaml
-        rules:
-          - ....as code....
-   timeliness:
-      description: "" 
-      unit: minute 
-      objective: 120
-      monitoring:
-        type: SodaCL   
-        format: yaml
-        rules:
-          - ....as code....
+        - member_id: unique
+  
 ```
 
 | <div style="width:150px">Element name</div>   | Type  | Options  | Description  |

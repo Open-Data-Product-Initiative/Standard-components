@@ -85,7 +85,7 @@ DataQoS:
 |---|---|---|---|
 | **errorRate** | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 
-### Additional common unified fields used all above indicators
+### Additional common unified fields used in above indicators
 
 | <div style="width:150px">Common unified fields</div>   | Type  | Options  | Description  |
 |---|---|---|---|

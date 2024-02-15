@@ -1223,7 +1223,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <h1 id='data-qos'>Data QoS</h1>
 <p>Data Quality of Service <strong>Object</strong> contains attributes which define the desired and promised quality of the data product from data quality and service quality point of view. </p>
 
-<p>The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include &quot;as code&quot; structure. &quot;As code&quot; refers to Everything as Code philosophy. <a href="https://www.dynatrace.com/news/blog/everything-as-code/">Everything as Code</a> is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and &quot;as code&quot; rules to monitor and verify wanted quality level.  </p>
+<p>The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include &quot;as code&quot; structure. &quot;As code&quot; refers to Everything as Code philosophy. <a href="https://www.dynatrace.com/news/blog/everything-as-code/">Everything as Code</a> is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and &quot;as code&quot; spec to monitor and verify wanted quality level.  </p>
 
 <p><img src="images/indicator-8bed23a0.jpg" alt="Indicator Schema" /></p>
 
@@ -1243,7 +1243,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
     <span class="na">monitoring</span><span class="pi">:</span>
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
       <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
+      <span class="na">spec</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">gender</span><span class="pi">:</span> <span class="s">matches("^(Male|Female|Other)$")</span>
         <span class="pi">-</span> <span class="na">age_band</span><span class="pi">:</span> <span class="s">matches("^\\d{2}-\\d{2}$")</span>  <span class="c1"># Assuming age bands are in the format 20-29, 30-39, etc.</span>
   <span class="na">completeness</span><span class="pi">:</span>
@@ -1253,13 +1253,52 @@ The YAML examples are not based on any real data product, but exemplify the usag
     <span class="na">monitoring</span><span class="pi">:</span>
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
       <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
+      <span class="na">spec</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
             <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
             <span class="na">checks</span><span class="pi">:</span>
               <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
                   <span class="na">warn</span><span class="pi">:</span> <span class="s">when &gt; 5%</span> <span class="c1"># Warn if more than 5% of records are null</span>
                   <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 10%</span> <span class="c1"># Fail if more than 10% of records are null</span>
+  <span class="na">errorRate</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
+    <span class="na">objective</span><span class="pi">:</span> <span class="m">0.98</span>
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># here we use OpenSLO standard</span>
+        <span class="na">ratioMetric</span><span class="pi">:</span>
+          <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
+          <span class="na">good</span><span class="pi">:</span>
+            <span class="na">metricSource</span><span class="pi">:</span>
+              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+              <span class="na">spec</span><span class="pi">:</span>
+                <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
+          <span class="na">total</span><span class="pi">:</span>
+            <span class="na">metricSource</span><span class="pi">:</span>
+              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+              <span class="na">spec</span><span class="pi">:</span>
+                <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>  
+
+  <span class="na">accuracy</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
+    <span class="na">objective</span><span class="pi">:</span> <span class="m">99</span>
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
+      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">....as code....</span>
+  <span class="na">consistency</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
+    <span class="na">objective</span><span class="pi">:</span> <span class="m">100</span>
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
+      <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">....as code....</span>
   <span class="na">uniqueness</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span> 
@@ -1267,7 +1306,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
     <span class="na">monitoring</span><span class="pi">:</span>
       <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>   
       <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">rules</span><span class="pi">:</span>
+      <span class="na">spec</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">member_id</span><span class="pi">:</span> <span class="s">unique</span>
 
 </code></pre></div>
@@ -1313,7 +1352,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>accuracy</td>
 <td>element</td>
 <td>-</td>
-<td>The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business rules.</td>
+<td>The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec.</td>
 </tr>
 <tr>
 <td>consistency</td>
@@ -1409,19 +1448,19 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>type</td>
 <td>string</td>
 <td>max length 50 chars</td>
-<td>Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual rules content</td>
+<td>Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content</td>
 </tr>
 <tr>
 <td>format</td>
 <td>string</td>
 <td>one of: string, yaml</td>
-<td>Value indicates in which format the rules will be given.</td>
+<td>Value indicates in which format the spec will be given.</td>
 </tr>
 <tr>
-<td>rules</td>
+<td>spec</td>
 <td>string</td>
 <td>-</td>
-<td>The quality rules can be encoded as a string or as inline YAML.</td>
+<td>The quality spec can be encoded as a string or as inline YAML.</td>
 </tr>
 </tbody></table>
 

@@ -69,27 +69,38 @@ DataQoS:
   
 ```
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | DataQoS | element | - | Binds the Data QoS related elements and attributes together |
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | availability | element | - | The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability |
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | conformity | element | - | Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide. |
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | completeness | element | - | Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset. |
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | errorRate | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
+
+| <div style="width:150px">Common elements used in all above</div>   | Type  | Options  | Description  |
+| description | string | max length 256 chars | Brief description of the indicator |
+
+| objectives | array | array | Contains both name and target value. See example.  Adopted from OpenSLO.|
+| monitoring | element | - | Binds together "as code" description of the DataQos indicator. Every indicator has monitoring part as well. |
+| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, OpenSLO, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
+| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |
+
+## Not yet in example or work in progress....
+
+| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | coverage | element | - | All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset. |
 | accuracy | element | - | The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec. |
@@ -104,12 +115,7 @@ DataQoS:
 | timeToNotify | element | - | Once you see a problem, how much time do you need to notify your users?  |
 | timeToRepair | element | - | How long do you need to fix the issue once it is detected?  |
 | timeliness | element | - | The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed |
-| description | string | max length 256 chars | Brief description of the indicator |
-| unit | string | one of: minute, hour, day, month, percentage | Measurement unit. |
-| objective | integer | integer | Minimum threshold level defined by the business based on customer needs. |
-| monitoring | element | - | Binds together "as code" description of the DataQos indicator. Every indicator has monitoring part as well. |
-| type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
-| format | string | one of: string, yaml | Value indicates in which format the spec will be given. |
-| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |
+
+
 
 If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, [raise an issue in Github](https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues)

@@ -86,6 +86,7 @@ DataQoS:
 | **errorRate** | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 
 | <div style="width:150px">Common elements</div>   | Type  | Options  | Description  |
+|---|---|---|---|
 | **description** | string | max length 256 chars | Brief description of the indicator |
 | **objectives** | array | array | Contains both name and target value. See example.  Adopted from OpenSLO.|
 | **monitoring** | element | - | Binds together "as code" description of the DataQos indicator. Every indicator has monitoring part as well. |

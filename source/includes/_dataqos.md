@@ -96,7 +96,7 @@ DataQoS:
 | objectives | array | array | Contains both name and target value. See example.  Adopted from OpenSLO.|
 | monitoring | element | - | Binds together "as code" description of the DataQos indicator. Every indicator has monitoring part as well. |
 | type | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, OpenSLO, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
-| spec | string | - | The quality spec can be encoded as a string or as inline YAML. |
+| spec | string | - | The indicator spec can be encoded as a string or as inline YAML. |
 
 ## Not yet in example or work in progress....
 

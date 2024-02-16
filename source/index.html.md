@@ -39,7 +39,7 @@ The specification is shared under <a href='https://creativecommons.org/licenses/
 
 **Version source:**
 
-* <a href="https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev">https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev</a>
+* <a href="https://github.com/Open-Data-Product-Initiative/DataQoS-as-code">https://github.com/Open-Data-Product-Initiative/DataQoS-as-code</a>
 
 
 
@@ -50,7 +50,7 @@ The specification is shared under <a href='https://creativecommons.org/licenses/
 
 **Participate:**
 
-* [Raise an issue in Github](https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues)
+* [Raise an issue in Github](https://github.com/Open-Data-Product-Initiative/DataQoS-as-code/issues)
 
 ## Introduction
 
@@ -65,7 +65,7 @@ Intro here
 **Note!** 'Open' refers to the openness of the standard. Any kind of connotations to open data (a different thing) are not intentional, intended, or desirable.
 
 
-If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, [raise an issue in Github](https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues)
+If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, [raise an issue in Github](https://github.com/Open-Data-Product-Initiative/DataQoS-as-code/issues)
 
 ## Document structure
 

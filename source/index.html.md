@@ -63,7 +63,7 @@ This experimental specification is part of larger PhD research. About the resear
 
 ![Data QoS model by Jean-George Perrin](https://raw.githubusercontent.com/Open-Data-Product-Initiative/DataQoS-as-code/main/source/images/dataqos.png)
 
-**Source:** https://medium.com/profitoptics/what-is-data-qos-and-why-is-it-critical-c524b81e3cc1
+**Source:** <a href="https://medium.com/profitoptics/what-is-data-qos-and-why-is-it-critical-c524b81e3cc1">What is Data QoS, and why is it critical?"</a>. 
 
 
 **Open Data Quality of Service as Code (Open Data QoS as Code)** in built upon the above concept and adds Everything as Code philosophy in it by adding "as code" aspect to it in order to enable monitoring. "Everything as Code" (EaC) is a development practice that extends the principles of version control, testing, and deployment, traditionally applied to software development, to all aspects of IT operations and infrastructure. This approach treats manual processes and resources—such as infrastructure provisioning, configuration, network setup, and security policies—as code. By doing so, it enhances repeatability, scalability, and security across the entire IT landscape. EaC allows for the automation of complex systems, making it easier to replicate environments for development, testing, and production purposes. It signifies a shift towards a more systematic, software-defined management of IT resources, aiming to improve efficiency, reduce errors, and increase the speed of deployment and operational task. 

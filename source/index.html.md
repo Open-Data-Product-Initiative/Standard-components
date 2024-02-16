@@ -68,6 +68,8 @@ This experimental specification is part of larger PhD research. About the resear
 
 **Open Data Quality of Service as Code (Open Data QoS as Code)** in built upon the above concept and adds Everything as Code philosophy in it by adding "as code" aspect to it in order to enable monitoring. "Everything as Code" (EaC) is a development practice that extends the principles of version control, testing, and deployment, traditionally applied to software development, to all aspects of IT operations and infrastructure. This approach treats manual processes and resources—such as infrastructure provisioning, configuration, network setup, and security policies—as code. By doing so, it enhances repeatability, scalability, and security across the entire IT landscape. EaC allows for the automation of complex systems, making it easier to replicate environments for development, testing, and production purposes. It signifies a shift towards a more systematic, software-defined management of IT resources, aiming to improve efficiency, reduce errors, and increase the speed of deployment and operational task. 
 
+### More information about Open Data QoS as Code
+
 This experimental specification of Open DataQoS as Code is part of larger PhD research. More information about the research and news regarding Open DataQoS as Code can be found from <a href="https://medium.com/exploring-the-frontier-of-data-products">Medium publication "Exploring the Frontier of Data Products"</a>. 
 
 ## Specification aims and aspects

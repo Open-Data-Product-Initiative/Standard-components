@@ -35,7 +35,7 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 
 The specification is shared under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license. Maintainer and igniter Jarkko Moilanen. 
 
-## Part of larger research project 
+### Part of larger research project 
 
 This experimental specification is part of larger PhD research. About the research and news regarding Open DataQoS as Code can be found from <a href="https://medium.com/exploring-the-frontier-of-data-products">Medium publication "Exploring the Frontier of Data Products"</a>. 
 

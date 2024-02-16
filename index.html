@@ -367,6 +367,17 @@
               </ul>
           </li>
           <li>
+            <a href="#completeness" class="toc-h1 toc-link" data-title="Completeness">Completeness</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#mandatory-components" class="toc-h2 toc-link" data-title="Mandatory components">Mandatory components</a>
+                  </li>
+                  <li>
+                    <a href="#optional-components" class="toc-h2 toc-link" data-title="Optional components">Optional components</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#hello-world-example" class="toc-h1 toc-link" data-title="Hello world example">Hello world example</a>
           </li>
           <li>
@@ -455,7 +466,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 
 <p>The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include &quot;as code&quot; structure. &quot;As code&quot; refers to Everything as Code philosophy. <a href="https://www.dynatrace.com/news/blog/everything-as-code/">Everything as Code</a> is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and &quot;as code&quot; spec to monitor and verify wanted quality level.  </p>
 
-<p><img src="images/indicator-8bed23a0.jpg" alt="Indicator Schema" /></p>
+<p><img src="images/images/indicator.jpg" alt="Indicator Schema" /></p>
 
 <p>The remaining 3 indicators General availability, End of support, and End of life are information which in Open Data Product Specification belong to document level defining general features of the data product. (Not implemented in this Trial)</p>
 
@@ -738,6 +749,54 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <h2 id='optional-components'>Optional components</h2>
 <blockquote>
 <p>Example of conformity component usage with some of the optional components:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+
+
+</code></pre></div>
+<table><thead>
+<tr>
+<th><div style="width:150px">Component name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>...</td>
+<td>string</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody></table>
+<h1 id='completeness'>Completeness</h1>
+<p>Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide.</p>
+<h2 id='mandatory-components'>Mandatory components</h2>
+<blockquote>
+<p>Example of completeness indicator usage with mandatory components</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+
+
+</code></pre></div>
+<table><thead>
+<tr>
+<th><div style="width:150px">Component name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>completeness</strong></td>
+<td>element</td>
+<td>-</td>
+<td>....</td>
+</tr>
+</tbody></table>
+<h2 id='optional-components'>Optional components</h2>
+<blockquote>
+<p>Example of completeness indicator usage with some of the optional components:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
 

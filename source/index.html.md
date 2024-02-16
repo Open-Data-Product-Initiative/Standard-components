@@ -12,6 +12,8 @@ toc_footers:
 
 includes:
   - dataqos
+  - conformity
+  - helloworld
   - terms
   - contributors
 

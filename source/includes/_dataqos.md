@@ -37,7 +37,7 @@ DataQoS:
         objectives:
           - displayName: Total Errors
             target: 0.98
-        ratioMetric:
+        ratioMetric: 
           counter: true
           good:
             metricSource:
@@ -61,15 +61,15 @@ DataQoS:
 | **DataQoS** | element | - | Binds the Data QoS related elements and attributes together |
 
 
-### Additional common unified fields used in above indicators
+### Additional common unified fields used in 19 indicators
 
 | <div style="width:150px">Common unified fields</div>   | Type  | Options  | Description  |
 |---|---|---|---|
 | **description** | string | max length 256 chars | Brief description of the indicator |
-| **objectives** | array | array | Contains both name and target value. See example.  Adopted from OpenSLO.|
+| **objectives** | array | array | Contains both name and target value. See example. Formatting of objectives is defined in OpenSLO.|
 | **monitoring** | element | - | Binds together "as code" description of the DataQos indicator. Every indicator has monitoring part as well. |
 | **type** | string | max length 50 chars | Value indicates the used system or standard. For example DataDog, OpenSLO, SodaCL, Montecarlo, and custom. Helps in identifying what to expect in actual spec content  |
-| **spec** | string | - | The indicator spec can be encoded as a string or as inline YAML. |
+| **spec** | string | - | The indicator spec can be encoded as a string or as inline YAML. Formerting of this depends of the *type* selected |
 
 ### Not yet in example or work in progress....
 

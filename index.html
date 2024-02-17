@@ -710,10 +710,40 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>errorRate</strong></td>
+<td><strong>availability</strong></td>
 <td>element</td>
 <td>-</td>
-<td>....</td>
+<td>Binds together availability indicator description with objectives and monitoring. Follows OpenSLO standard model.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>attribute</td>
+<td>string</td>
+<td>Short description to be used in displying more detailed information for consumers and operations staff.</td>
+</tr>
+<tr>
+<td>monitoring</td>
+<td>object</td>
+<td>-</td>
+<td>Binds together both monitoring and objectives (threshold values) structure</td>
+</tr>
+<tr>
+<td>type</td>
+<td>attribute</td>
+<td>string</td>
+<td>Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link)</td>
+</tr>
+<tr>
+<td>spec</td>
+<td>object</td>
+<td>-</td>
+<td>Inside this object you write the type specified description or objectives and monitoring as code.</td>
+</tr>
+<tr>
+<td>objectives</td>
+<td>array</td>
+<td>-</td>
+<td>Define the objectives (threshold values) for expected quality of this indicator.</td>
 </tr>
 </tbody></table>
 <h1 id='conformity'>Conformity</h1>

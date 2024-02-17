@@ -76,6 +76,8 @@ This experimental specification of Open DataQoS as Code is part of larger PhD re
 
 ## Specification aims and aspects
 
+Data QoS as Code represents a groundbreaking shift in data management, merging the principles of Data Quality and Service-Level Agreements into an integrated framework. This approach leverages the concepts of network Quality of Service (QoS) for monitoring data service performance metrics such as packet loss, throughput, and availability. By adopting the Everything as Code philosophy, Data QoS as Code introduces a method for automating, scaling, and securing data monitoring and management. It utilizes a vendor-neutral, YAML-based specification to facilitate this, offering a streamlined and efficient solution for handling complex data quality and service-level requirements.
+
 **Specification aims:**
 
 * Define DataQoS with YAML as a machine-readable vendor-neutral open specification

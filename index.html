@@ -477,54 +477,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <p>Example of DataQoS component usage:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">DataQoS</span><span class="pi">:</span>
-  <span class="na">conformity</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
-      <span class="na">objectives</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Conformity</span>
-          <span class="na">target</span><span class="pi">:</span> <span class="m">90</span>
-      <span class="na">spec</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">gender</span><span class="pi">:</span> <span class="s">matches("^(Male|Female|Other)$")</span>
-        <span class="pi">-</span> <span class="na">age_band</span><span class="pi">:</span> <span class="s">matches("^\\d{2}-\\d{2}$")</span>  <span class="c1"># Assuming age bands are in the format 20-29, 30-39, etc.</span>
-  <span class="na">completeness</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span> 
-      <span class="na">objectives</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Completeness</span>
-        <span class="na">target</span><span class="pi">:</span> <span class="m">98</span>
-      <span class="na">spec</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
-            <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
-            <span class="na">checks</span><span class="pi">:</span>
-              <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
-                  <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
-  <span class="na">errorRate</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
-      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
-        <span class="na">objectives</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Total Errors</span>
-            <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-        <span class="na">ratioMetric</span><span class="pi">:</span>
-          <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
-          <span class="na">good</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
-          <span class="na">total</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>  
-
-
+<span class="na">DataQoS</span><span class="pi">:</span>  
 
 </code></pre></div>
 <table><thead>

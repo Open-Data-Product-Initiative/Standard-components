@@ -372,6 +372,14 @@
               </ul>
           </li>
           <li>
+            <a href="#error-rate" class="toc-h1 toc-link" data-title="Error rate">Error rate</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#hello-world-example" class="toc-h1 toc-link" data-title="Hello world example">Hello world example</a>
           </li>
           <li>
@@ -741,6 +749,41 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </thead><tbody>
 <tr>
 <td><strong>completeness</strong></td>
+<td>element</td>
+<td>-</td>
+<td>....</td>
+</tr>
+</tbody></table>
+<h1 id='error-rate'>Error rate</h1>
+<p>Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?</p>
+<h2 id='components'>Components</h2>
+<blockquote>
+<p>Example of error rate indicator usage</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+<span class="na">DataQoS</span><span class="pi">:</span>
+  <span class="na">conformity</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
+      <span class="na">objectives</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Conformity</span>
+          <span class="na">target</span><span class="pi">:</span> <span class="m">90</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">gender</span><span class="pi">:</span> <span class="s">matches("^(Male|Female|Other)$")</span>
+        <span class="pi">-</span> <span class="na">age_band</span><span class="pi">:</span> <span class="s">matches("^\\d{2}-\\d{2}$")</span>  <span class="c1"># Assuming age bands are in the format 20-29, 30-39, etc.</span>
+
+</code></pre></div>
+<table><thead>
+<tr>
+<th><div style="width:150px">Component name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>errorRate</strong></td>
 <td>element</td>
 <td>-</td>
 <td>....</td>

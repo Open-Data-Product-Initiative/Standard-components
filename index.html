@@ -342,9 +342,6 @@
                     <a href="#introduction" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
                   </li>
                   <li>
-                    <a href="#specification-aims-and-aspects" class="toc-h2 toc-link" data-title="Specification aims and aspects">Specification aims and aspects</a>
-                  </li>
-                  <li>
                     <a href="#document-structure" class="toc-h2 toc-link" data-title="Document structure">Document structure</a>
                   </li>
               </ul>
@@ -404,7 +401,19 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='open-dataqos-as-code'>Open DataQoS as Code</h1><h2 id='experimental-development-version'>Experimental development version</h2>
+        <h1 id='open-dataqos-as-code'>Open DataQoS as Code</h1>
+<p>Data QoS as Code represents a groundbreaking shift in data management, merging the principles of Data Quality and Service-Level Agreements into an integrated framework. This approach leverages the concepts of network Quality of Service (QoS) for monitoring data service performance metrics such as packet loss, throughput, and availability. By adopting the Everything as Code philosophy, Data QoS as Code introduces a method for automating, scaling, and securing data monitoring and management. It utilizes a vendor-neutral, YAML-based specification to facilitate this, offering a streamlined and efficient solution for handling complex data quality and service-level requirements.</p>
+
+<p><strong>Specification aims:</strong></p>
+
+<ul>
+<li>Define DataQoS with YAML as a machine-readable vendor-neutral open specification</li>
+<li>Define data quality and service quality with 19 indicators as a holistic yet flexible reusable component</li>
+<li>Extend the DataQoS concept with Everything as Code to enable monitoring and define the business-driven threshold requirements</li>
+</ul>
+
+<p><strong>Note!</strong> &#39;Open&#39; refers to the openness of the standard. Any kind of connotations to open data (a different thing) are not intentional, intended, or desirable.</p>
+<h2 id='experimental-development-version'>Experimental development version</h2>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here.</p>
 
 <p>The specification is shared under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license. Maintainer and igniter Jarkko Moilanen. </p>
@@ -440,18 +449,6 @@
 <p><strong>Open Data Quality of Service as Code (Open Data QoS as Code)</strong> in built upon the above concept and adds Everything as Code philosophy in it by adding &quot;as code&quot; aspect to it in order to enable monitoring. &quot;Everything as Code&quot; (EaC) is a development practice that extends the principles of version control, testing, and deployment, traditionally applied to software development, to all aspects of IT operations and infrastructure. This approach treats manual processes and resources—such as infrastructure provisioning, configuration, network setup, and security policies—as code. By doing so, it enhances repeatability, scalability, and security across the entire IT landscape. EaC allows for the automation of complex systems, making it easier to replicate environments for development, testing, and production purposes. It signifies a shift towards a more systematic, software-defined management of IT resources, aiming to improve efficiency, reduce errors, and increase the speed of deployment and operational task. </p>
 <h3 id='more-information-about-open-data-qos-as-code'>More information about Open Data QoS as Code</h3>
 <p>This experimental specification of Open DataQoS as Code is part of larger PhD research. More information about the research and news regarding Open DataQoS as Code can be found from <a href="https://medium.com/exploring-the-frontier-of-data-products">Medium publication &quot;Exploring the Frontier of Data Products&quot;</a>. </p>
-<h2 id='specification-aims-and-aspects'>Specification aims and aspects</h2>
-<p>Data QoS as Code represents a groundbreaking shift in data management, merging the principles of Data Quality and Service-Level Agreements into an integrated framework. This approach leverages the concepts of network Quality of Service (QoS) for monitoring data service performance metrics such as packet loss, throughput, and availability. By adopting the Everything as Code philosophy, Data QoS as Code introduces a method for automating, scaling, and securing data monitoring and management. It utilizes a vendor-neutral, YAML-based specification to facilitate this, offering a streamlined and efficient solution for handling complex data quality and service-level requirements.</p>
-
-<p><strong>Specification aims:</strong></p>
-
-<ul>
-<li>Define DataQoS with YAML as a machine-readable vendor-neutral open specification</li>
-<li>Define data quality and service quality with 19 indicators as a holistic yet flexible reusable component</li>
-<li>Extend the DataQoS concept with Everything as Code to enable monitoring and define the business-driven threshold requirements</li>
-</ul>
-
-<p><strong>Note!</strong> &#39;Open&#39; refers to the openness of the standard. Any kind of connotations to open data (a different thing) are not intentional, intended, or desirable.</p>
 
 <p>If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, <a href="https://github.com/Open-Data-Product-Initiative/DataQoS-as-code/issues">raise an issue in Github</a></p>
 <h2 id='document-structure'>Document structure</h2>

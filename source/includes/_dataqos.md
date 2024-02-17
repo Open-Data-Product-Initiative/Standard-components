@@ -18,7 +18,41 @@ In this trial mandatory stucture elements are not defined and everyhing is marke
 
 ```yml
 
-DataQoS:  
+DataQoS:
+ conformity:
+    description: "" 
+    monitoring:
+      type: SodaCL  
+      objectives:
+        - displayName: Conformity
+          target: 90
+      spec:
+        - gender: matches("^(Male|Female|Other)$")
+        - age_band: matches("^\\d{2}-\\d{2}$")  # Assuming age bands are in the format 20-29, 30-39, etc.
+  errorRate:
+    description: "" 
+    monitoring:
+      type: OpenSLO
+      spec: # inside the spec we use OpenSLO standard, https://github.com/openslo/openslo
+        objectives:
+          - displayName: Total Errors
+            target: 0.98
+        ratioMetric:
+          counter: true
+          good:
+            metricSource:
+              type: Prometheus
+              metricSourceRef: prometheus-datasource
+              spec:
+                query: sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})
+          total:
+            metricSource:
+              type: Prometheus
+              metricSourceRef: prometheus-datasource
+              spec:
+                query: localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}  
+  
+  
   
 ```
 
@@ -26,17 +60,6 @@ DataQoS:
 |---|---|---|---|
 | **DataQoS** | element | - | Binds the Data QoS related elements and attributes together |
 
-| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
-|---|---|---|---|
-| **conformity** | element | - | Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide. |
-
-| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
-|---|---|---|---|
-| **completeness** | element | - | Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset. |
-
-| <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
-|---|---|---|---|
-| **errorRate** | element | - | Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors? |
 
 ### Additional common unified fields used in above indicators
 
@@ -52,7 +75,6 @@ DataQoS:
 
 | <div style="width:150px">Indicator name</div>   | Type  | Options  | Description  |
 |---|---|---|---|
-| availability | element | - | The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability |
 | coverage | element | - | All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset. |
 | accuracy | element | - | The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec. |
 | consistency | element | - | Data should retain consistent content across data stores. Consistency ensures that data values, formats, and definitions in one group match those in another group. |

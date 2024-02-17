@@ -393,9 +393,6 @@
             <a href="#hello-world-example" class="toc-h1 toc-link" data-title="Hello world example">Hello world example</a>
           </li>
           <li>
-            <a href="#terms-used" class="toc-h1 toc-link" data-title="Terms used">Terms used</a>
-          </li>
-          <li>
             <a href="#editors-and-contributors" class="toc-h1 toc-link" data-title="Editors and contributors">Editors and contributors</a>
           </li>
       </ul>
@@ -589,88 +586,6 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>string</td>
 <td>-</td>
 <td>The indicator spec can be encoded as a string or as inline YAML. Formerting of this depends of the <em>type</em> selected</td>
-</tr>
-</tbody></table>
-<h3 id='not-yet-in-example-or-work-in-progress'>Not yet in example or work in progress....</h3>
-<table><thead>
-<tr>
-<th><div style="width:150px">Indicator name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>coverage</td>
-<td>element</td>
-<td>-</td>
-<td>All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset.</td>
-</tr>
-<tr>
-<td>accuracy</td>
-<td>element</td>
-<td>-</td>
-<td>The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec.</td>
-</tr>
-<tr>
-<td>consistency</td>
-<td>element</td>
-<td>-</td>
-<td>Data should retain consistent content across data stores. Consistency ensures that data values, formats, and definitions in one group match those in another group.</td>
-</tr>
-<tr>
-<td>uniqueness</td>
-<td>element</td>
-<td>-</td>
-<td>How much data can be duplicated? It supports the idea that no record or attribute is recorded more than once. Uniqueness means each record and attribute should be one-of-a-kind, aiming for a single, unique data entry</td>
-</tr>
-<tr>
-<td>throughPut</td>
-<td>element</td>
-<td>-</td>
-<td>Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time.</td>
-</tr>
-<tr>
-<td>retention</td>
-<td>element</td>
-<td>-</td>
-<td>How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints.</td>
-</tr>
-<tr>
-<td>frequency</td>
-<td>element</td>
-<td>-</td>
-<td>How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates.</td>
-</tr>
-<tr>
-<td>latency</td>
-<td>element</td>
-<td>-</td>
-<td>Measures the time between the production of the data and its availability for consumption.</td>
-</tr>
-<tr>
-<td>timeToDetect</td>
-<td>element</td>
-<td>-</td>
-<td>How fast can you detect a problem? How fast do you guarantee the detection of the problem?</td>
-</tr>
-<tr>
-<td>timeToNotify</td>
-<td>element</td>
-<td>-</td>
-<td>Once you see a problem, how much time do you need to notify your users?</td>
-</tr>
-<tr>
-<td>timeToRepair</td>
-<td>element</td>
-<td>-</td>
-<td>How long do you need to fix the issue once it is detected?</td>
-</tr>
-<tr>
-<td>timeliness</td>
-<td>element</td>
-<td>-</td>
-<td>The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed</td>
 </tr>
 </tbody></table>
 
@@ -870,6 +785,90 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>element</td>
 <td>-</td>
 <td>....</td>
+</tr>
+</tbody></table>
+<h3 id='tbd'>TBD</h3>
+<p>Indicators to be added to the specification</p>
+
+<table><thead>
+<tr>
+<th><div style="width:150px">Indicator name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>coverage</td>
+<td>element</td>
+<td>-</td>
+<td>All records are contained in a data store or data source. Coverage relates to the extent and availability of data present but absent from a dataset.</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>element</td>
+<td>-</td>
+<td>The measurement of the veracity of data to its authoritative source: the data is provided but incorrect. Accuracy refers to how precise data is, and it can be assessed by comparing it to the original documents and trusted sources or confirming it against business spec.</td>
+</tr>
+<tr>
+<td>consistency</td>
+<td>element</td>
+<td>-</td>
+<td>Data should retain consistent content across data stores. Consistency ensures that data values, formats, and definitions in one group match those in another group.</td>
+</tr>
+<tr>
+<td>uniqueness</td>
+<td>element</td>
+<td>-</td>
+<td>How much data can be duplicated? It supports the idea that no record or attribute is recorded more than once. Uniqueness means each record and attribute should be one-of-a-kind, aiming for a single, unique data entry</td>
+</tr>
+<tr>
+<td>throughPut</td>
+<td>element</td>
+<td>-</td>
+<td>Throughput is about how fast I can access the data. It can measured in bytes or records by unit of time.</td>
+</tr>
+<tr>
+<td>retention</td>
+<td>element</td>
+<td>-</td>
+<td>How long are we keeping the records and documents? There is nothing extraordinary here, as with most service-level indicators, it can vary by use case and legal constraints.</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>element</td>
+<td>-</td>
+<td>How often is your data updated? Daily? Weekly? Monthly? A linked indicator to this frequency is the time of availability, which applies well to daily batch updates.</td>
+</tr>
+<tr>
+<td>latency</td>
+<td>element</td>
+<td>-</td>
+<td>Measures the time between the production of the data and its availability for consumption.</td>
+</tr>
+<tr>
+<td>timeToDetect</td>
+<td>element</td>
+<td>-</td>
+<td>How fast can you detect a problem? How fast do you guarantee the detection of the problem?</td>
+</tr>
+<tr>
+<td>timeToNotify</td>
+<td>element</td>
+<td>-</td>
+<td>Once you see a problem, how much time do you need to notify your users?</td>
+</tr>
+<tr>
+<td>timeToRepair</td>
+<td>element</td>
+<td>-</td>
+<td>How long do you need to fix the issue once it is detected?</td>
+</tr>
+<tr>
+<td>timeliness</td>
+<td>element</td>
+<td>-</td>
+<td>The data must represent current conditions; the data is available and can be used when needed. Timeliness gauges how well data reflects current market/business conditions and its availability when needed</td>
 </tr>
 </tbody></table>
 <h1 id='hello-world-example'>Hello world example</h1>
@@ -1076,45 +1075,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
     <span class="na">parentOrganization</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
 
 
-</code></pre></div><h1 id='terms-used'>Terms used</h1>
-<p>Here&#39;s list of terms used and what we mean with them. The meaning of terms is mostly taken from existing knowledge eg articles and other trusted sources. The source is always linked to the term. In some rare cases term is defined for the specification purposes only. </p>
-
-<table><thead>
-<tr>
-<th><div style="width:150px">Term</div></th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Data point</td>
-<td>A data point refers to a single, individual unit of data. It can be a number, a word, a measurement, or any other piece of information that is recorded and used for analysis. Some mix the data point with a dataset. In a dataset, each data point represents one observation or measurement. For example, in a dataset of temperatures recorded every day, each daily temperature is a data point.</td>
-</tr>
-<tr>
-<td>Data product</td>
-<td>As a strategic resource for companies, data is considered an asset that, like any other material good, has a financial value and whose management generates costs. Data created, collected or used in individual business processes can be sold to other organisations as raw or processed data, so that it no longer serves as an enabler of products, but is the product itself. This leads to the paradigm that data assets can be monetised by exchanging and trading data between organisations as data products and services. <br/><br/> There are multiple definitions for data product. In an <a href="https://arxiv.org/abs/2009.04462">article authored by Jian Pei (2020)</a>, data products &quot;<em>refer to data sets as products and information services derived from data sets.</em>&quot; Simon O&#39;Regan&#39;s defines data product as <em>a product whose primary objective is to use data to facilitate an end goal</em>. From the academic literature we have found several subtypes of data products: raw data, derived data, data sets, reports, analytic views, 3D visualisations, algorithms, decision support (dashboards) and automated decision-making (Netflix product recommendations or Spotify’s Discover Weekly would be common examples). <br/><br/>Typically raw data, derived data and algorithms have technical users. Most often they tend to be internal products in an organisation. <br/><br/> If we dive in the data mesh world, this quote from <a href="https://www.oreilly.com/library/view/data-mesh/9781492092384/">Zhamak Dehghani’s book</a> is key to understand the definition of data as a product: “<em>Domain data teams must apply product thinking […] to the datasets that they provide; considering their data assets as their products and the rest of the organization’s data scientists, ML and data engineers as their customers.</em>”<br/><br/>While many of the standard Product Development Rules apply — solve a customer need, learn from feedback, prioritise relentlessly, etc. — data has different characteristics compared to tangible products that prevent the direct transfer of established processes and rules of trading goods, especially in terms of pricing mechanisms. <br/> <br/>In trading data, there is less willingness to pay. For example, data buyers often do not recognise the potential value of data items because it cannot be fully disclosed prior to purchase (known as the ‘Arrow paradox’). <br/><br/>In addition, there is often a lack of notion that the creation, processing, storage and distribution of high-quality data is a major cost factor for the data provider. Another obstacle is the lack of trust and security causing potential data providers to fear that competitors could benefit from disclosure of in-house data. <br/><br/>One of the aims of this specification is to tackle above mentioned issues which hinder the growth of data ecosystem and market volatility.</td>
-</tr>
-<tr>
-<td>Data as a service</td>
-<td><a href="https://en.wikipedia.org/wiki/Data_as_a_service">In computing, data as a service, or DaaS</a>, is a term used to describe cloud-based software tools used for working with data, such as managing data in a data warehouse or analyzing data with business intelligence. It is enabled by software as a service (SaaS). DaaS like all &quot;as a service&quot; (aaS) technology, builds on the concept that its data product can be provided to the user on demand, regardless of geographic or organizational separation between provider and consumer. <br/><br/> <a href="https://www.forbes.com/sites/danielnewman/2017/02/07/data-as-a-service-the-big-opportunity-for-business/">According to Daniel Newman from Forbes (2017)</a> DaaS is essentially a data stream that subscribers can access on demand.  <br/><br/> Some people use the term data product in a meaning which contains also data commodities which have more service alike attributes than product attributes. In those cases we prefer to use the term <em>data as a service</em> and call the creation process as <em>data servitization</em>. The term <em>productizement</em> is reserved for the process which creates data products as end result.</td>
-</tr>
-<tr>
-<td>Data as a service business model</td>
-<td>Data as a service as a business model is a concept when two or more organizations buy, sell, or trade machine-readable data in exchange for something of value. Data as a service is a general term that encompasses data-related services. Now DaaS service providers are replacing traditional data analytics services or happily clustering with existing services to offer more value-addition to customers. The DaaS providers are curating, aggregating, analyzing multi-source data in order to provide additional more valuable analytical data or information. <br/><br/> Typically, DaaS business is based on subscriptions and customers pay for a package of services or definite services.</td>
-</tr>
-<tr>
-<td>Data pipeline</td>
-<td>According to <a href="https://research.chalmers.se/publication/523476/file/523476_Fulltext.pdf">Aiswarya et al.</a> the complex chain of interconnected activities or processes from data gen- eration through data reception constitutes a data pipeline. In other words, data pipelines are the connected chain of processes where the output of one or more processes becomes an input for another. It is a piece of software that removes many manual steps from the workflow and permits a streamlined, automated flow of data from one node to another. Moreover, it automates the operations involved in the selection, extraction, transformation, aggregation, validation, and loading of data for further analysis and visualization. It offers end to end speed by removing errors and resisting bottlenecks or delay. Data pipelines can process multiple streams of data simultaneously.</td>
-</tr>
-<tr>
-<td>Infrastructure as Code</td>
-<td>Infrastructure as Code (IaC) transforms infrastructure management by using code instead of manual processes. Configuration files capture infrastructure specifications, ensuring consistent environment provisioning. The &quot;as code&quot; paradigm extends beyond infrastructure to encompass quality control and data product processes. This approach, applied to the entire data pipeline, enhances repeatability, traceability, and scalability, fostering collaboration and systematic data management.</td>
-</tr>
-<tr>
-<td>DataOps</td>
-<td>In DataOps, the focus lies in creating automated processes for releasing and updating data products throughout their lifecycle, from development to production. This automation spans the entire journey from development to transitioning into production. The objective is to enhance operational efficiency through automation, reduce errors, and enable faster release cycles for data products.</td>
-</tr>
-</tbody></table>
-<h1 id='editors-and-contributors'>Editors and contributors</h1>
+</code></pre></div><h1 id='editors-and-contributors'>Editors and contributors</h1>
 <p>This specification is openly developed and a lot of the work comes from community. We list all community contributors as a sign of appreciation. The editor (and initial creator of the the specification) is Jarkko Moilanen. Editors take the feedback and draft new candidate releases, which may become the versions of the specification. </p>
 
       </div>

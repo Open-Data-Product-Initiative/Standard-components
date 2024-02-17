@@ -14,6 +14,7 @@ includes:
   - dataqos
   - conformity
   - completeness
+  - errorrate
   - helloworld
   - terms
   - contributors

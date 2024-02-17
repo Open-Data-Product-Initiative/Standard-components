@@ -80,7 +80,7 @@ This experimental specification of Open DataQoS as Code is part of larger PhD re
 
 * Define DataQoS with YAML as a machine-readable vendor-neutral open specification
 * Define data quality and service quality with 19 indicators as a holistic yet flexible reusable component
-* Extend the DataQoS concept with Everything as Code to enable monitoring along with defining the business-driven threshold requirements
+* Extend the DataQoS concept with Everything as Code to enable monitoring and define the business-driven threshold requirements
 
 **Note!** 'Open' refers to the openness of the standard. Any kind of connotations to open data (a different thing) are not intentional, intended, or desirable.
 

@@ -12,6 +12,7 @@ toc_footers:
 
 includes:
   - dataqos
+  - availability
   - conformity
   - completeness
   - errorrate

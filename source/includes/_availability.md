@@ -1,22 +1,22 @@
-# Error rate
+# Availability
 
-Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?
+The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability
 
 
 ## Components
 
-> Example of error rate indicator usage
+> Example of availability indicator usage
 
 ```yml
 
 DataQoS:
-  errorRate:
+  availability:
     description: "" 
     monitoring:
       type: OpenSLO
       spec: # inside the spec we use OpenSLO standard, https://github.com/openslo/openslo
         objectives:
-          - displayName: Total Errors
+          - displayName: Availability
             target: 0.98
         ratioMetric:
           counter: true

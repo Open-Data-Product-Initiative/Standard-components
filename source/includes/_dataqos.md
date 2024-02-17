@@ -18,54 +18,7 @@ In this trial mandatory stucture elements are not defined and everyhing is marke
 
 ```yml
 
-DataQoS:
-  conformity:
-    description: "" 
-    monitoring:
-      type: SodaCL  
-      objectives:
-        - displayName: Conformity
-          target: 90
-      spec:
-        - gender: matches("^(Male|Female|Other)$")
-        - age_band: matches("^\\d{2}-\\d{2}$")  # Assuming age bands are in the format 20-29, 30-39, etc.
-  completeness:
-    description: ""
-    monitoring:
-      type: SodaCL 
-      objectives:
-      - displayName: Completeness
-        target: 98
-      spec:
-        - for each column:
-            name: [member_id, gender, age_band]
-            checks:
-              - not null:
-                  fail: when > 2% # Fail if more than 2% of records are null
-  errorRate:
-    description: "" 
-    monitoring:
-      type: OpenSLO
-      spec: # inside the spec we use OpenSLO standard, https://github.com/openslo/openslo
-        objectives:
-          - displayName: Total Errors
-            target: 0.98
-        ratioMetric:
-          counter: true
-          good:
-            metricSource:
-              type: Prometheus
-              metricSourceRef: prometheus-datasource
-              spec:
-                query: sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})
-          total:
-            metricSource:
-              type: Prometheus
-              metricSourceRef: prometheus-datasource
-              spec:
-                query: localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}  
-  
-  
+DataQoS:  
   
 ```
 

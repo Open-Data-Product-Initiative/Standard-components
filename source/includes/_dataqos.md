@@ -2,15 +2,23 @@
 
 Data Quality of Service **Object** contains attributes which define the desired and promised quality of the data product from data quality and service quality point of view. 
 
-The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include "as code" structure. "As code" refers to Everything as Code philosophy. [Everything as Code](https://www.dynatrace.com/news/blog/everything-as-code/) is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and "as code" spec to monitor and verify wanted quality level.  
+The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators. "As code" refers to [Everything as Code](https://www.dynatrace.com/news/blog/everything-as-code/) which is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and "as code" spec to monitor and verify wanted quality level.  
 
 ![Indicator Schema](images/indicator.jpg)
 
-The remaining 3 indicators General availability, End of support, and End of life are information which in Open Data Product Specification belong to document level defining general features of the data product. (Not implemented in this Trial)
-
 In this trial mandatory stucture elements are not defined and everyhing is marked as optional including the DataQoS object. Should it be mandatory and to what extend is a good questions and is another excercise. 
 
-**You choose the indicators from 16 options which matches your needs. No need to use all.**
+### Usage guidance
+
+In final version 1.0 you choose the indicators from 19 options which matches your needs. In this experimental version just 4 indicators have been defined to exemplify the structure and schemas used. 
+
+It is not expected that all use cases require 19 indicators or even that all use cases require both service and data quality indicators to be used. **In the application of the Open DataQoS as Code standard, users select which indicators to use.** 
+
+- Some might use it only to define threshold values and monitoring rules for Data Quality (Data Quality Focus)
+- Others use just the Service Quality aspect of it. (Service Quality Focus)
+- In some use cases some of both aspects are applied by including data quality and service quality indicators in the specifications. (Mixed Focus) 
+
+You can access details of each indicator from the navigation. In the provided example you can see two indicators used (conformity and error rate). 
 
 ## Optional attributes and elements
 

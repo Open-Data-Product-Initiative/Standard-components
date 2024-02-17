@@ -367,10 +367,7 @@
             <a href="#completeness" class="toc-h1 toc-link" data-title="Completeness">Completeness</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#mandatory-components" class="toc-h2 toc-link" data-title="Mandatory components">Mandatory components</a>
-                  </li>
-                  <li>
-                    <a href="#optional-components" class="toc-h2 toc-link" data-title="Optional components">Optional components</a>
+                    <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
                   </li>
               </ul>
           </li>
@@ -760,12 +757,25 @@ The YAML examples are not based on any real data product, but exemplify the usag
 </tbody></table>
 <h1 id='completeness'>Completeness</h1>
 <p>Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide.</p>
-<h2 id='mandatory-components'>Mandatory components</h2>
+<h2 id='components'>Components</h2>
 <blockquote>
-<p>Example of completeness indicator usage with mandatory components</p>
+<p>Example of completeness indicator usage</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-
+<span class="na">DataQoS</span><span class="pi">:</span>
+  <span class="na">completeness</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span> 
+      <span class="na">objectives</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Completeness</span>
+        <span class="na">target</span><span class="pi">:</span> <span class="m">98</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
+            <span class="na">checks</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
+                  <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
 
 </code></pre></div>
 <table><thead>
@@ -781,29 +791,6 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>element</td>
 <td>-</td>
 <td>....</td>
-</tr>
-</tbody></table>
-<h2 id='optional-components'>Optional components</h2>
-<blockquote>
-<p>Example of completeness indicator usage with some of the optional components:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-
-
-</code></pre></div>
-<table><thead>
-<tr>
-<th><div style="width:150px">Component name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>...</td>
-<td>string</td>
-<td>...</td>
-<td>...</td>
 </tr>
 </tbody></table>
 <h1 id='hello-world-example'>Hello world example</h1>

@@ -350,6 +350,9 @@
             <a href="#data-qos" class="toc-h1 toc-link" data-title="Data QoS">Data QoS</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#usage-guidance" class="toc-h2 toc-link" data-title="Usage guidance">Usage guidance</a>
+                  </li>
+                  <li>
                     <a href="#optional-attributes-and-elements" class="toc-h2 toc-link" data-title="Optional attributes and elements">Optional attributes and elements</a>
                   </li>
               </ul>
@@ -479,15 +482,23 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <h1 id='data-qos'>Data QoS</h1>
 <p>Data Quality of Service <strong>Object</strong> contains attributes which define the desired and promised quality of the data product from data quality and service quality point of view. </p>
 
-<p>The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators, out of which 16 have been defined in ODPS to include &quot;as code&quot; structure. &quot;As code&quot; refers to Everything as Code philosophy. <a href="https://www.dynatrace.com/news/blog/everything-as-code/">Everything as Code</a> is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and &quot;as code&quot; spec to monitor and verify wanted quality level.  </p>
+<p>The Object follows Data QoS model created by Jean-Georges Perrin. Data QoS contains 19 indicators. &quot;As code&quot; refers to <a href="https://www.dynatrace.com/news/blog/everything-as-code/">Everything as Code</a> which is the practice of treating all parts of the system as code. Each indicator is an object that has both threshold values set by the business and &quot;as code&quot; spec to monitor and verify wanted quality level.  </p>
 
 <p><img src="images/images/indicator.jpg" alt="Indicator Schema" /></p>
 
-<p>The remaining 3 indicators General availability, End of support, and End of life are information which in Open Data Product Specification belong to document level defining general features of the data product. (Not implemented in this Trial)</p>
-
 <p>In this trial mandatory stucture elements are not defined and everyhing is marked as optional including the DataQoS object. Should it be mandatory and to what extend is a good questions and is another excercise. </p>
+<h3 id='usage-guidance'>Usage guidance</h3>
+<p>In final version 1.0 you choose the indicators from 19 options which matches your needs. In this experimental version just 4 indicators have been defined to exemplify the structure and schemas used. </p>
 
-<p><strong>You choose the indicators from 16 options which matches your needs. No need to use all.</strong></p>
+<p>It is not expected that all use cases require 19 indicators or even that all use cases require both service and data quality indicators to be used. <strong>In the application of the Open DataQoS as Code standard, users select which indicators to use.</strong> </p>
+
+<ul>
+<li>Some might use it only to define threshold values and monitoring rules for Data Quality (Data Quality Focus)</li>
+<li>Others use just the Service Quality aspect of it. (Service Quality Focus)</li>
+<li>In some use cases some of both aspects are applied by including data quality and service quality indicators in the specifications. (Mixed Focus) </li>
+</ul>
+
+<p>You can access details of each indicator from the navigation. In the provided example you can see two indicators used (conformity and error rate). </p>
 <h2 id='optional-attributes-and-elements'>Optional attributes and elements</h2>
 <blockquote>
 <p>Example of DataQoS component usage:</p>

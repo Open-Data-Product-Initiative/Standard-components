@@ -493,7 +493,41 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <p>Example of DataQoS component usage:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">DataQoS</span><span class="pi">:</span>  
+<span class="na">DataQoS</span><span class="pi">:</span>
+ <span class="na">conformity</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
+      <span class="na">objectives</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Conformity</span>
+          <span class="na">target</span><span class="pi">:</span> <span class="m">90</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">gender</span><span class="pi">:</span> <span class="s">matches("^(Male|Female|Other)$")</span>
+        <span class="pi">-</span> <span class="na">age_band</span><span class="pi">:</span> <span class="s">matches("^\\d{2}-\\d{2}$")</span>  <span class="c1"># Assuming age bands are in the format 20-29, 30-39, etc.</span>
+ <span class="err"> </span><span class="na">errorRate</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
+      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
+        <span class="na">objectives</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Total Errors</span>
+            <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
+        <span class="na">ratioMetric</span><span class="pi">:</span>
+          <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
+          <span class="na">good</span><span class="pi">:</span>
+            <span class="na">metricSource</span><span class="pi">:</span>
+              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+              <span class="na">spec</span><span class="pi">:</span>
+                <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
+          <span class="na">total</span><span class="pi">:</span>
+            <span class="na">metricSource</span><span class="pi">:</span>
+              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+              <span class="na">spec</span><span class="pi">:</span>
+                <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>  
+
+
 
 </code></pre></div>
 <table><thead>
@@ -509,54 +543,6 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>element</td>
 <td>-</td>
 <td>Binds the Data QoS related elements and attributes together</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th><div style="width:150px">Indicator name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>conformity</strong></td>
-<td>element</td>
-<td>-</td>
-<td>Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide.</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th><div style="width:150px">Indicator name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>completeness</strong></td>
-<td>element</td>
-<td>-</td>
-<td>Data is required to be populated with a value (aka not null, not nullable). Completeness checks if all necessary data attributes are present in the dataset.</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th><div style="width:150px">Indicator name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>errorRate</strong></td>
-<td>element</td>
-<td>-</td>
-<td>Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?</td>
 </tr>
 </tbody></table>
 <h3 id='additional-common-unified-fields-used-in-above-indicators'>Additional common unified fields used in above indicators</h3>
@@ -608,12 +594,6 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>availability</td>
-<td>element</td>
-<td>-</td>
-<td>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</td>
-</tr>
 <tr>
 <td>coverage</td>
 <td>element</td>

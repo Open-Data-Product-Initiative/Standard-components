@@ -514,7 +514,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
         <span class="na">objectives</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Total Errors</span>
             <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-        <span class="na">ratioMetric</span><span class="pi">:</span>
+        <span class="na">ratioMetric</span><span class="pi">:</span> 
           <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
           <span class="na">good</span><span class="pi">:</span>
             <span class="na">metricSource</span><span class="pi">:</span>
@@ -547,7 +547,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>Binds the Data QoS related elements and attributes together</td>
 </tr>
 </tbody></table>
-<h3 id='additional-common-unified-fields-used-in-above-indicators'>Additional common unified fields used in above indicators</h3>
+<h3 id='additional-common-unified-fields-used-in-19-indicators'>Additional common unified fields used in 19 indicators</h3>
 <table><thead>
 <tr>
 <th><div style="width:150px">Common unified fields</div></th>
@@ -566,7 +566,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td><strong>objectives</strong></td>
 <td>array</td>
 <td>array</td>
-<td>Contains both name and target value. See example.  Adopted from OpenSLO.</td>
+<td>Contains both name and target value. See example. Formatting of objectives is defined in OpenSLO.</td>
 </tr>
 <tr>
 <td><strong>monitoring</strong></td>
@@ -584,7 +584,7 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td><strong>spec</strong></td>
 <td>string</td>
 <td>-</td>
-<td>The indicator spec can be encoded as a string or as inline YAML.</td>
+<td>The indicator spec can be encoded as a string or as inline YAML. Formerting of this depends of the <em>type</em> selected</td>
 </tr>
 </tbody></table>
 <h3 id='not-yet-in-example-or-work-in-progress'>Not yet in example or work in progress....</h3>

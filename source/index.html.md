@@ -16,8 +16,8 @@ includes:
   - conformity
   - completeness
   - errorrate
+  - todo
   - helloworld
-  - terms
   - contributors
 
 search: true

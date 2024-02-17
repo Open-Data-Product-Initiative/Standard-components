@@ -359,10 +359,7 @@
             <a href="#conformity" class="toc-h1 toc-link" data-title="Conformity">Conformity</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#mandatory-components" class="toc-h2 toc-link" data-title="Mandatory components">Mandatory components</a>
-                  </li>
-                  <li>
-                    <a href="#optional-components" class="toc-h2 toc-link" data-title="Optional components">Optional components</a>
+                    <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
                   </li>
               </ul>
           </li>
@@ -728,12 +725,22 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <p>If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, <a href="https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues">raise an issue in Github</a></p>
 <h1 id='conformity'>Conformity</h1>
 <p>Data content must align with required standards, syntax (format, type, range), or permissible domain values. Conformity assesses how closely data adheres to standards, whether internal, external, or industry-wide.</p>
-<h2 id='mandatory-components'>Mandatory components</h2>
+<h2 id='components'>Components</h2>
 <blockquote>
-<p>Example of conformity indicator usage with mandatory components</p>
+<p>Example of conformity indicator usage</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-
+<span class="na">DataQoS</span><span class="pi">:</span>
+  <span class="na">conformity</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">SodaCL</span>  
+      <span class="na">objectives</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Conformity</span>
+          <span class="na">target</span><span class="pi">:</span> <span class="m">90</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">gender</span><span class="pi">:</span> <span class="s">matches("^(Male|Female|Other)$")</span>
+        <span class="pi">-</span> <span class="na">age_band</span><span class="pi">:</span> <span class="s">matches("^\\d{2}-\\d{2}$")</span>  <span class="c1"># Assuming age bands are in the format 20-29, 30-39, etc.</span>
 
 </code></pre></div>
 <table><thead>
@@ -749,29 +756,6 @@ The YAML examples are not based on any real data product, but exemplify the usag
 <td>element</td>
 <td>-</td>
 <td>....</td>
-</tr>
-</tbody></table>
-<h2 id='optional-components'>Optional components</h2>
-<blockquote>
-<p>Example of conformity component usage with some of the optional components:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-
-
-</code></pre></div>
-<table><thead>
-<tr>
-<th><div style="width:150px">Component name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>...</td>
-<td>string</td>
-<td>...</td>
-<td>...</td>
 </tr>
 </tbody></table>
 <h1 id='completeness'>Completeness</h1>

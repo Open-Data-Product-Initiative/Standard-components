@@ -1,4 +1,4 @@
-# Pricing 
+# Pricing Extensions
 
 Pricing components
 

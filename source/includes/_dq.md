@@ -1,4 +1,4 @@
-# Data Quality
+# Data Quality Extensions
 
 The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability
 
@@ -22,6 +22,10 @@ extension:
     $schema: URL
     kind: dataquality
     vendor: Montecarlo
+    objectives:
+        field_health:
+            display_name: Field Health
+            target: 100
     spec:
         field_health:
         - table: project:dataset.table_name

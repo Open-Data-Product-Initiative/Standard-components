@@ -11,12 +11,13 @@ toc_footers:
 
 
 includes:
-  - dq
-  - sla
-  - access
-  - pricing
-  - stakeholders
-  - provider
+- access
+- dq
+- pricing
+- provider
+- roles
+- sla
+- stakeholders
 
 
 search: true

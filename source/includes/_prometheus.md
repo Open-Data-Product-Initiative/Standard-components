@@ -1,4 +1,4 @@
-# Error rate
+# Prometheus
 
 Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?
 
@@ -9,7 +9,7 @@ Use OpenSLO standard in the object to define rules in the spec. How often will y
 
 ```yml
 
-DataQoS:
+Prometheus:
   errorRate:
     description: "" 
     monitoring:

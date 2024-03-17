@@ -9,7 +9,7 @@ The availability of the service/data. Use common SLA apprach to define percentag
 
 ```yml
 
-DataQoS:
+Montecarlo:
   availability:
     description: "" 
     monitoring:

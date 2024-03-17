@@ -336,26 +336,21 @@
             <a href="#standardized-extensions-for-data-economy-specifications" class="toc-h1 toc-link" data-title="Standardized Extensions for Data Economy Specifications">Standardized Extensions for Data Economy Specifications</a>
           </li>
           <li>
-            <a href="#montecarlo" class="toc-h1 toc-link" data-title="MonteCarlo">MonteCarlo</a>
+            <a href="#data-quality" class="toc-h1 toc-link" data-title="Data Quality">Data Quality</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
+                    <a href="#montecarlo" class="toc-h2 toc-link" data-title="Montecarlo">Montecarlo</a>
+                  </li>
+                  <li>
+                    <a href="#sodacl" class="toc-h2 toc-link" data-title="SodaCL">SodaCL</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#prometheus" class="toc-h1 toc-link" data-title="Prometheus">Prometheus</a>
+            <a href="#sla" class="toc-h1 toc-link" data-title="SLA">SLA</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#availability" class="toc-h1 toc-link" data-title="Availability">Availability</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
+                    <a href="#prometheus" class="toc-h2 toc-link" data-title="Prometheus">Prometheus</a>
                   </li>
               </ul>
           </li>
@@ -370,36 +365,29 @@
       <div class="content">
         <h1 id='standardized-extensions-for-data-economy-specifications'>Standardized Extensions for Data Economy Specifications</h1>
 <p>A library of standardized extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. </p>
-<h1 id='montecarlo'>MonteCarlo</h1>
+<h1 id='data-quality'>Data Quality</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
-<h2 id='components'>Components</h2>
+<h2 id='montecarlo'>Montecarlo</h2>
 <blockquote>
-<p>Example of availability indicator usage</p>
+<p>Example of Montecarlo extension usage</p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">Montecarlo</span><span class="pi">:</span>
-  <span class="na">availability</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
-      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
-        <span class="na">objectives</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
-            <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-        <span class="na">ratioMetric</span><span class="pi">:</span>
-          <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
-          <span class="na">good</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
-          <span class="na">total</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
+<div class="highlight"><pre class="highlight yaml"><code>    <span class="na">objectives</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
+        <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
+    <span class="na">ratioMetric</span><span class="pi">:</span>
+        <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
+        <span class="na">good</span><span class="pi">:</span>
+        <span class="na">metricSource</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+            <span class="na">spec</span><span class="pi">:</span>
+            <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
+        <span class="na">total</span><span class="pi">:</span>
+        <span class="na">metricSource</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+            <span class="na">spec</span><span class="pi">:</span>
+            <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
 
 </code></pre></div>
 <table><thead>
@@ -447,36 +435,21 @@
 <td>Define the objectives (threshold values) for expected quality of this indicator.</td>
 </tr>
 </tbody></table>
-<h1 id='prometheus'>Prometheus</h1>
-<p>Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?</p>
-<h2 id='components'>Components</h2>
+<h2 id='sodacl'>SodaCL</h2>
 <blockquote>
-<p>Example of error rate indicator usage</p>
+<p>Example of SodaCL extension usage</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">Prometheus</span><span class="pi">:</span>
-  <span class="na">errorRate</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
-      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
-        <span class="na">objectives</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Total Errors</span>
-            <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-        <span class="na">ratioMetric</span><span class="pi">:</span>
-          <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
-          <span class="na">good</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
-          <span class="na">total</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
+<span class="na">objectives</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Completeness</span>
+  <span class="na">target</span><span class="pi">:</span> <span class="m">98</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
+      <span class="na">checks</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
+            <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
+
 
 </code></pre></div>
 <table><thead>
@@ -488,42 +461,65 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>errorRate</strong></td>
+<td><strong>availability</strong></td>
 <td>element</td>
 <td>-</td>
-<td>....</td>
+<td>Binds together availability indicator description with objectives and monitoring. Follows OpenSLO standard model.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>attribute</td>
+<td>string</td>
+<td>Short description to be used in displying more detailed information for consumers and operations staff.</td>
+</tr>
+<tr>
+<td>monitoring</td>
+<td>object</td>
+<td>-</td>
+<td>Binds together both monitoring and objectives (threshold values) structure</td>
+</tr>
+<tr>
+<td>type</td>
+<td>attribute</td>
+<td>string</td>
+<td>Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link)</td>
+</tr>
+<tr>
+<td>spec</td>
+<td>object</td>
+<td>-</td>
+<td>Inside this object you write the type specified description or objectives and monitoring as code.</td>
+</tr>
+<tr>
+<td>objectives</td>
+<td>array</td>
+<td>-</td>
+<td>Define the objectives (threshold values) for expected quality of this indicator.</td>
 </tr>
 </tbody></table>
-<h1 id='availability'>Availability</h1>
+<h1 id='sla'>SLA</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
-<h2 id='components'>Components</h2>
+<h2 id='prometheus'>Prometheus</h2>
 <blockquote>
-<p>Example of availability indicator usage</p>
+<p>Example of Prometheus extension usage</p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">DataQoS</span><span class="pi">:</span>
-  <span class="na">availability</span><span class="pi">:</span>
-    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
-    <span class="na">monitoring</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">OpenSLO</span>
-      <span class="na">spec</span><span class="pi">:</span> <span class="c1"># inside the spec we use OpenSLO standard, https://github.com/openslo/openslo</span>
-        <span class="na">objectives</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
-            <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-        <span class="na">ratioMetric</span><span class="pi">:</span>
-          <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
-          <span class="na">good</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
-          <span class="na">total</span><span class="pi">:</span>
-            <span class="na">metricSource</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-              <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-              <span class="na">spec</span><span class="pi">:</span>
-                <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
+<div class="highlight"><pre class="highlight yaml"><code>    <span class="na">objectives</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
+        <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
+    <span class="na">ratioMetric</span><span class="pi">:</span>
+        <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
+        <span class="na">good</span><span class="pi">:</span>
+        <span class="na">metricSource</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+            <span class="na">spec</span><span class="pi">:</span>
+            <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
+        <span class="na">total</span><span class="pi">:</span>
+        <span class="na">metricSource</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
+            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
+            <span class="na">spec</span><span class="pi">:</span>
+            <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
 
 </code></pre></div>
 <table><thead>

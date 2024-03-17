@@ -1,3 +1,3 @@
-# Stakeholder 
+# Stakeholder Extensions
 
 Stakeholders components

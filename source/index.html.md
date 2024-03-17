@@ -40,6 +40,10 @@ These are shared core components between data economy standards. By default the 
 
 Extension pattern is universal and same in all core components. 
 
+## Access
+
+## Data
+
 ## Data Quality
 
 
@@ -164,13 +168,12 @@ pricingPlans:
 |  maxDataQuantity | Integer  | -  | The maximum amount of data transferred during the billing duration. Unit is GB. |
 |  valueSimulator  | url | valid url | Intended to be used with *value-based* pricing plan. Provide url to value simulator in which customer can see the value in various cases. In the simulator customer might be able to input own variables to match their exact case and see the gained value. |
 
-## Access
 
+## Provider
 
-## Data
+## Roles
 
 
 ## Stakeholders
 
 
-## Provider

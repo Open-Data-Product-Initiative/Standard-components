@@ -10,6 +10,7 @@ The availability of the service/data. Use common SLA apprach to define percentag
 > Example of Prometheus extension usage for availability
 
 ```yml
+$schema: URL
 kind: sla-availability
 objective:
     displayName: Availability
@@ -37,6 +38,7 @@ monitoring:
 > Example of Vendor extension usage for availability
 
 ```yml
+$schema: URL
 kind: sla-availability
 objective:
     displayName: Availability

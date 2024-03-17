@@ -132,8 +132,6 @@ pricingPlans:
 | **maxTransactionQuantity** | Integer |  Integer | **REQUIRED** The maximum transaction quantity for the given billing duration. Use this to define for example monthly (or any other period) request limit to the data product. Note! If you want to set unlimited use, value must be 0 (zero). |
 | **offering**  | string | array | **REQUIRED** The element that contains pricing plan content as array of strings. Think of this as the list of what is included in the pricing plan and what you offer in return to the price asked. Use the language defined in the *plan* |
 
-If you see something missing, described inaccurately or plain wrong, or you want to comment the specification, [raise an issue in Github](https://github.com/Open-Data-Product-Initiative/open-data-product-spec-dev/issues)
-
 ## Optional attributes and elements
 
 > Example of Pricing component usage with some of the optional elements and attributes:

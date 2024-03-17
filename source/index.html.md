@@ -13,6 +13,10 @@ toc_footers:
 includes:
   - dq
   - sla
+  - access
+  - pricing
+  - stakeholders
+  - provider
 
 
 search: true
@@ -21,7 +25,7 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: The Open DataQoS as Code is a vendor-neutral, open-source machine-readable data product quality and service metadata model. It applies Everything as Code philosophy into the data products.  
+    content: Standard components with extensions from vendors 
 ---
 
 # Standardized Extensions for Data Economy Specifications

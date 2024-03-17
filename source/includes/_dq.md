@@ -51,12 +51,3 @@ extension:
 
  
 ```
-
-| <div style="width:150px">Component name</div>   | Type  | Options  | Description  |
-|---|---|---|---|
-| **availability** | element | - | Binds together availability indicator description with objectives and monitoring. Follows OpenSLO standard model. |
-| description | attribute | string | Short description to be used in displying more detailed information for consumers and operations staff.  |
-| monitoring | object | - | Binds together both monitoring and objectives (threshold values) structure |
-| type | attribute | string | Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link) |
-| spec | object | - | Inside this object you write the type specified description or objectives and monitoring as code. |
-| objectives | array | - | Define the objectives (threshold values) for expected quality of this indicator. |

@@ -12,8 +12,7 @@ toc_footers:
 
 includes:
   - dq
-  - prometheus
-  - sodacl
+  - sla
 
 
 search: true

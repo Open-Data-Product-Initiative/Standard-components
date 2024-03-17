@@ -27,7 +27,7 @@ meta:
 
 # Standardized Extensions for Data Economy Specifications
 
-A library of standardized extentions to be used for example in Data Contracts and Data Product Sopecications.
+A library of standardized extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. 
 
 
 

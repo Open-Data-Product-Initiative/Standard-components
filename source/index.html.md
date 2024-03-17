@@ -29,9 +29,9 @@ meta:
     content: Standard components with extensions from vendors 
 ---
 
-# Standardized Extensions for Data Economy Specifications
+# Standardized Core Components and Extensions for Data Economy Specifications
 
-A library of standardized extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. 
+A library of standardized core components and extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. 
 
 
 # Core Components

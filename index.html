@@ -348,9 +348,15 @@
           </li>
           <li>
             <a href="#sla" class="toc-h1 toc-link" data-title="SLA">SLA</a>
+          </li>
+          <li>
+            <a href="#availability" class="toc-h1 toc-link" data-title="Availability">Availability</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#prometheus" class="toc-h2 toc-link" data-title="Prometheus">Prometheus</a>
+                  </li>
+                  <li>
+                    <a href="#some-other-vendor" class="toc-h2 toc-link" data-title="Some other vendor">Some other vendor</a>
                   </li>
               </ul>
           </li>
@@ -499,27 +505,19 @@
 </tbody></table>
 <h1 id='sla'>SLA</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
-<h2 id='prometheus'>Prometheus</h2>
+<h1 id='availability'>Availability</h1><h2 id='prometheus'>Prometheus</h2>
 <blockquote>
-<p>Example of Prometheus extension usage</p>
+<p>Example of Prometheus extension usage for availability</p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>    <span class="na">objectives</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
-        <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-    <span class="na">ratioMetric</span><span class="pi">:</span>
-        <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
-        <span class="na">good</span><span class="pi">:</span>
-        <span class="na">metricSource</span><span class="pi">:</span>
-            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-            <span class="na">spec</span><span class="pi">:</span>
-            <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
-        <span class="na">total</span><span class="pi">:</span>
-        <span class="na">metricSource</span><span class="pi">:</span>
-            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-            <span class="na">spec</span><span class="pi">:</span>
-            <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">kind</span><span class="pi">:</span> <span class="s">sla-availability</span>
+<span class="na">objective</span><span class="pi">:</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
+    <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
+<span class="na">monitoring</span><span class="pi">:</span>
+    <span class="na">good</span><span class="pi">:</span>
+        <span class="na">spec</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
+    <span class="na">total</span><span class="pi">:</span>
+        <span class="na">spec</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
 
 </code></pre></div>
 <table><thead>
@@ -531,10 +529,70 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>availability</strong></td>
+<td><strong>objectives</strong></td>
 <td>element</td>
 <td>-</td>
-<td>Binds together availability indicator description with objectives and monitoring. Follows OpenSLO standard model.</td>
+<td>measurement objective</td>
+</tr>
+<tr>
+<td>description</td>
+<td>attribute</td>
+<td>string</td>
+<td>Short description to be used in displying more detailed information for consumers and operations staff.</td>
+</tr>
+<tr>
+<td>monitoring</td>
+<td>object</td>
+<td>-</td>
+<td>Binds together both monitoring and objectives (threshold values) structure</td>
+</tr>
+<tr>
+<td>type</td>
+<td>attribute</td>
+<td>string</td>
+<td>Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link)</td>
+</tr>
+<tr>
+<td>spec</td>
+<td>object</td>
+<td>-</td>
+<td>Inside this object you write the type specified description or objectives and monitoring as code.</td>
+</tr>
+<tr>
+<td>objectives</td>
+<td>array</td>
+<td>-</td>
+<td>Define the objectives (threshold values) for expected quality of this indicator.</td>
+</tr>
+</tbody></table>
+<h2 id='some-other-vendor'>Some other vendor</h2>
+<blockquote>
+<p>Example of Vendor extension usage for availability</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">kind</span><span class="pi">:</span> <span class="s">sla-availability</span>
+<span class="na">objective</span><span class="pi">:</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
+    <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
+<span class="na">monitoring</span><span class="pi">:</span>
+    <span class="na">good</span><span class="pi">:</span>
+        <span class="na">spec</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
+    <span class="na">total</span><span class="pi">:</span>
+        <span class="na">spec</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
+
+</code></pre></div>
+<table><thead>
+<tr>
+<th><div style="width:150px">Component name</div></th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>objectives</strong></td>
+<td>element</td>
+<td>-</td>
+<td>measurement objective</td>
 </tr>
 <tr>
 <td>description</td>

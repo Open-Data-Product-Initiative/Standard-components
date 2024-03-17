@@ -359,7 +359,10 @@
               </ul>
           </li>
           <li>
-            <a href="#data-quality" class="toc-h1 toc-link" data-title="Data Quality">Data Quality</a>
+            <a href="#access-extensions" class="toc-h1 toc-link" data-title="Access extensions">Access extensions</a>
+          </li>
+          <li>
+            <a href="#data-quality-extensions" class="toc-h1 toc-link" data-title="Data Quality Extensions">Data Quality Extensions</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#elements-and-structure" class="toc-h2 toc-link" data-title="Elements and structure">Elements and structure</a>
@@ -373,7 +376,16 @@
               </ul>
           </li>
           <li>
-            <a href="#sla" class="toc-h1 toc-link" data-title="SLA">SLA</a>
+            <a href="#pricing-extensions" class="toc-h1 toc-link" data-title="Pricing Extensions">Pricing Extensions</a>
+          </li>
+          <li>
+            <a href="#provider-extensions" class="toc-h1 toc-link" data-title="Provider Extensions">Provider Extensions</a>
+          </li>
+          <li>
+            <a href="#roles-extensions" class="toc-h1 toc-link" data-title="Roles Extensions">Roles Extensions</a>
+          </li>
+          <li>
+            <a href="#sla-extensions" class="toc-h1 toc-link" data-title="SLA Extensions">SLA Extensions</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#availability" class="toc-h2 toc-link" data-title="Availability">Availability</a>
@@ -381,16 +393,7 @@
               </ul>
           </li>
           <li>
-            <a href="#access" class="toc-h1 toc-link" data-title="Access">Access</a>
-          </li>
-          <li>
-            <a href="#pricing" class="toc-h1 toc-link" data-title="Pricing">Pricing</a>
-          </li>
-          <li>
             <a href="#stakeholder" class="toc-h1 toc-link" data-title="Stakeholder">Stakeholder</a>
-          </li>
-          <li>
-            <a href="#provider" class="toc-h1 toc-link" data-title="Provider">Provider</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -409,7 +412,9 @@
 <p>Extension pattern is universal and same in all core components. </p>
 <h2 id='data-quality'>Data Quality</h2>
 <p>Data quality extensions defined separately.</p>
-<h2 id='pricing'>Pricing</h2><h2 id='access'>Access</h2><h2 id='data'>Data</h2><h2 id='stakeholders'>Stakeholders</h2><h2 id='provider'>Provider</h2><h1 id='data-quality'>Data Quality</h1>
+<h2 id='pricing'>Pricing</h2><h2 id='access'>Access</h2><h2 id='data'>Data</h2><h2 id='stakeholders'>Stakeholders</h2><h2 id='provider'>Provider</h2><h1 id='access-extensions'>Access extensions</h1>
+<p>Components for access </p>
+<h1 id='data-quality-extensions'>Data Quality Extensions</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
 <h2 id='elements-and-structure'>Elements and structure</h2>
 <table><thead>
@@ -459,6 +464,10 @@
     <span class="s">$schema</span><span class="pi">:</span> <span class="s">URL</span>
     <span class="na">kind</span><span class="pi">:</span> <span class="s">dataquality</span>
     <span class="na">vendor</span><span class="pi">:</span> <span class="s">Montecarlo</span>
+    <span class="na">objectives</span><span class="pi">:</span>
+        <span class="na">field_health</span><span class="pi">:</span>
+            <span class="na">display_name</span><span class="pi">:</span> <span class="s">Field Health</span>
+            <span class="na">target</span><span class="pi">:</span> <span class="m">100</span>
     <span class="na">spec</span><span class="pi">:</span>
         <span class="na">field_health</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">table</span><span class="pi">:</span> <span class="s">project:dataset.table_name</span>
@@ -483,7 +492,13 @@
                 <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
 
 
-</code></pre></div><h1 id='sla'>SLA</h1>
+</code></pre></div><h1 id='pricing-extensions'>Pricing Extensions</h1>
+<p>Pricing components</p>
+<h1 id='provider-extensions'>Provider Extensions</h1>
+<p>Provider components</p>
+<h1 id='roles-extensions'>Roles Extensions</h1>
+<p>Roles related extensions. </p>
+<h1 id='sla-extensions'>SLA Extensions</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
 <h2 id='availability'>Availability</h2><h3 id='prometheus'>Prometheus</h3>
 <blockquote>
@@ -500,53 +515,7 @@
     <span class="na">total</span><span class="pi">:</span>
         <span class="na">spec</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
 
-</code></pre></div>
-<table><thead>
-<tr>
-<th><div style="width:150px">Component name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>objectives</strong></td>
-<td>element</td>
-<td>-</td>
-<td>measurement objective</td>
-</tr>
-<tr>
-<td>description</td>
-<td>attribute</td>
-<td>string</td>
-<td>Short description to be used in displying more detailed information for consumers and operations staff.</td>
-</tr>
-<tr>
-<td>monitoring</td>
-<td>object</td>
-<td>-</td>
-<td>Binds together both monitoring and objectives (threshold values) structure</td>
-</tr>
-<tr>
-<td>type</td>
-<td>attribute</td>
-<td>string</td>
-<td>Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link)</td>
-</tr>
-<tr>
-<td>spec</td>
-<td>object</td>
-<td>-</td>
-<td>Inside this object you write the type specified description or objectives and monitoring as code.</td>
-</tr>
-<tr>
-<td>objectives</td>
-<td>array</td>
-<td>-</td>
-<td>Define the objectives (threshold values) for expected quality of this indicator.</td>
-</tr>
-</tbody></table>
-<h3 id='some-other-vendor'>Some other vendor</h3>
+</code></pre></div><h3 id='some-other-vendor'>Some other vendor</h3>
 <blockquote>
 <p>Example of Vendor extension usage for availability</p>
 </blockquote>
@@ -607,14 +576,8 @@
 <td>Define the objectives (threshold values) for expected quality of this indicator.</td>
 </tr>
 </tbody></table>
-<h1 id='access'>Access</h1>
-<p>Components for access </p>
-<h1 id='pricing'>Pricing</h1>
-<p>Pricing components</p>
 <h1 id='stakeholder'>Stakeholder</h1>
 <p>Stakeholders components</p>
-<h1 id='provider'>Provider</h1>
-<p>Provider components</p>
 
       </div>
       <div class="dark-box">

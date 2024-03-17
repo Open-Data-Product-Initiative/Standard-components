@@ -336,6 +336,29 @@
             <a href="#standardized-extensions-for-data-economy-specifications" class="toc-h1 toc-link" data-title="Standardized Extensions for Data Economy Specifications">Standardized Extensions for Data Economy Specifications</a>
           </li>
           <li>
+            <a href="#core-components" class="toc-h1 toc-link" data-title="Core Components">Core Components</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#data-quality" class="toc-h2 toc-link" data-title="Data Quality">Data Quality</a>
+                  </li>
+                  <li>
+                    <a href="#pricing" class="toc-h2 toc-link" data-title="Pricing">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="#access" class="toc-h2 toc-link" data-title="Access">Access</a>
+                  </li>
+                  <li>
+                    <a href="#data" class="toc-h2 toc-link" data-title="Data">Data</a>
+                  </li>
+                  <li>
+                    <a href="#stakeholders" class="toc-h2 toc-link" data-title="Stakeholders">Stakeholders</a>
+                  </li>
+                  <li>
+                    <a href="#provider" class="toc-h2 toc-link" data-title="Provider">Provider</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#data-quality" class="toc-h1 toc-link" data-title="Data Quality">Data Quality</a>
               <ul class="toc-list-h2">
                   <li>
@@ -380,7 +403,13 @@
       <div class="content">
         <h1 id='standardized-extensions-for-data-economy-specifications'>Standardized Extensions for Data Economy Specifications</h1>
 <p>A library of standardized extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. </p>
-<h1 id='data-quality'>Data Quality</h1>
+<h1 id='core-components'>Core Components</h1>
+<p>These are shared core components between data economy standards. By default the core components are very limited and compact to keep the overall standards easy to adopt. The usecases can be extended by expanding the core components with standardized versioned extensions. </p>
+
+<p>Extension pattern is universal and same in all core components. </p>
+<h2 id='data-quality'>Data Quality</h2>
+<p>Data quality extensions defined separately.</p>
+<h2 id='pricing'>Pricing</h2><h2 id='access'>Access</h2><h2 id='data'>Data</h2><h2 id='stakeholders'>Stakeholders</h2><h2 id='provider'>Provider</h2><h1 id='data-quality'>Data Quality</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
 <h2 id='elements-and-structure'>Elements and structure</h2>
 <table><thead>
@@ -454,53 +483,7 @@
                 <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
 
 
-</code></pre></div>
-<table><thead>
-<tr>
-<th><div style="width:150px">Component name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>availability</strong></td>
-<td>element</td>
-<td>-</td>
-<td>Binds together availability indicator description with objectives and monitoring. Follows OpenSLO standard model.</td>
-</tr>
-<tr>
-<td>description</td>
-<td>attribute</td>
-<td>string</td>
-<td>Short description to be used in displying more detailed information for consumers and operations staff.</td>
-</tr>
-<tr>
-<td>monitoring</td>
-<td>object</td>
-<td>-</td>
-<td>Binds together both monitoring and objectives (threshold values) structure</td>
-</tr>
-<tr>
-<td>type</td>
-<td>attribute</td>
-<td>string</td>
-<td>Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link)</td>
-</tr>
-<tr>
-<td>spec</td>
-<td>object</td>
-<td>-</td>
-<td>Inside this object you write the type specified description or objectives and monitoring as code.</td>
-</tr>
-<tr>
-<td>objectives</td>
-<td>array</td>
-<td>-</td>
-<td>Define the objectives (threshold values) for expected quality of this indicator.</td>
-</tr>
-</tbody></table>
-<h1 id='sla'>SLA</h1>
+</code></pre></div><h1 id='sla'>SLA</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
 <h2 id='availability'>Availability</h2><h3 id='prometheus'>Prometheus</h3>
 <blockquote>

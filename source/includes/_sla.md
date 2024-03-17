@@ -3,9 +3,9 @@
 The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability
 
 
-# Availability
+## Availability
 
-## Prometheus 
+### Prometheus 
 
 > Example of Prometheus extension usage for availability
 
@@ -32,7 +32,7 @@ monitoring:
 | objectives | array | - | Define the objectives (threshold values) for expected quality of this indicator. |
 
 
-## Some other vendor 
+### Some other vendor 
 
 > Example of Vendor extension usage for availability
 

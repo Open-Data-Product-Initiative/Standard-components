@@ -344,7 +344,7 @@
               </ul>
           </li>
           <li>
-            <a href="#error-rate" class="toc-h1 toc-link" data-title="Error rate">Error rate</a>
+            <a href="#prometheus" class="toc-h1 toc-link" data-title="Prometheus">Prometheus</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#components" class="toc-h2 toc-link" data-title="Components">Components</a>
@@ -377,7 +377,7 @@
 <p>Example of availability indicator usage</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">DataQoS</span><span class="pi">:</span>
+<span class="na">Montecarlo</span><span class="pi">:</span>
   <span class="na">availability</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">monitoring</span><span class="pi">:</span>
@@ -447,14 +447,14 @@
 <td>Define the objectives (threshold values) for expected quality of this indicator.</td>
 </tr>
 </tbody></table>
-<h1 id='error-rate'>Error rate</h1>
+<h1 id='prometheus'>Prometheus</h1>
 <p>Use OpenSLO standard in the object to define rules in the spec. How often will your data have errors, and over what period? What is your tolerance for those errors?</p>
 <h2 id='components'>Components</h2>
 <blockquote>
 <p>Example of error rate indicator usage</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">DataQoS</span><span class="pi">:</span>
+<span class="na">Prometheus</span><span class="pi">:</span>
   <span class="na">errorRate</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
     <span class="na">monitoring</span><span class="pi">:</span>

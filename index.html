@@ -339,6 +339,9 @@
             <a href="#data-quality" class="toc-h1 toc-link" data-title="Data Quality">Data Quality</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#elements-and-structure" class="toc-h2 toc-link" data-title="Elements and structure">Elements and structure</a>
+                  </li>
+                  <li>
                     <a href="#montecarlo" class="toc-h2 toc-link" data-title="Montecarlo">Montecarlo</a>
                   </li>
                   <li>
@@ -379,29 +382,7 @@
 <p>A library of standardized extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. </p>
 <h1 id='data-quality'>Data Quality</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
-<h2 id='montecarlo'>Montecarlo</h2>
-<blockquote>
-<p>Example of Montecarlo extension usage</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>    <span class="na">objectives</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Availability</span>
-        <span class="na">target</span><span class="pi">:</span> <span class="m">0.98</span>
-    <span class="na">ratioMetric</span><span class="pi">:</span>
-        <span class="na">counter</span><span class="pi">:</span> <span class="no">true</span>
-        <span class="na">good</span><span class="pi">:</span>
-        <span class="na">metricSource</span><span class="pi">:</span>
-            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-            <span class="na">spec</span><span class="pi">:</span>
-            <span class="na">query</span><span class="pi">:</span> <span class="s">sum(localhost_server_requests{code=~"2xx|3xx",host="*",instance="127.0.0.1:9090"})</span>
-        <span class="na">total</span><span class="pi">:</span>
-        <span class="na">metricSource</span><span class="pi">:</span>
-            <span class="na">type</span><span class="pi">:</span> <span class="s">Prometheus</span>
-            <span class="na">metricSourceRef</span><span class="pi">:</span> <span class="s">prometheus-datasource</span>
-            <span class="na">spec</span><span class="pi">:</span>
-            <span class="na">query</span><span class="pi">:</span> <span class="s">localhost_server_requests{code="total",host="*",instance="127.0.0.1:9090"}</span>
-
-</code></pre></div>
+<h2 id='elements-and-structure'>Elements and structure</h2>
 <table><thead>
 <tr>
 <th><div style="width:150px">Component name</div></th>
@@ -411,56 +392,66 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>availability</strong></td>
+<td>extension</td>
 <td>element</td>
 <td>-</td>
-<td>Binds together availability indicator description with objectives and monitoring. Follows OpenSLO standard model.</td>
+<td>Binds together extension. This is used only in the example. This is part of unified method to add extensions to various data economy standards</td>
 </tr>
 <tr>
-<td>description</td>
+<td>$schema</td>
+<td>valid URL</td>
+<td>URL</td>
+<td>URL to Schema that defines spec element content options. This is provided and maintained by vendor.</td>
+</tr>
+<tr>
+<td>kind</td>
 <td>attribute</td>
 <td>string</td>
-<td>Short description to be used in displying more detailed information for consumers and operations staff.</td>
+<td>Defines the class in which extension belongs to. Options: dataquality, access, pricing, sla, stakeholders,  provider</td>
 </tr>
 <tr>
-<td>monitoring</td>
-<td>object</td>
-<td>-</td>
-<td>Binds together both monitoring and objectives (threshold values) structure</td>
-</tr>
-<tr>
-<td>type</td>
+<td>vendor</td>
 <td>attribute</td>
 <td>string</td>
-<td>Defines the standard used in describing the monitoring object contant. Call also be vendor specific such as MonteCarlo and SodaCL. Details in type definition (link)</td>
+<td>Name of the vendor</td>
 </tr>
 <tr>
 <td>spec</td>
-<td>object</td>
+<td>element</td>
 <td>-</td>
-<td>Inside this object you write the type specified description or objectives and monitoring as code.</td>
-</tr>
-<tr>
-<td>objectives</td>
-<td>array</td>
-<td>-</td>
-<td>Define the objectives (threshold values) for expected quality of this indicator.</td>
+<td>If extension contains EaC approach, this is the element in which vendor system specific &quot;as code&quot; specification is provided.</td>
 </tr>
 </tbody></table>
-<h2 id='sodacl'>SodaCL</h2>
+<h2 id='montecarlo'>Montecarlo</h2>
+<blockquote>
+<p>Example of Montecarlo extension usage</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">extension</span><span class="pi">:</span>
+    <span class="s">$schema</span><span class="pi">:</span> <span class="s">URL</span>
+    <span class="na">kind</span><span class="pi">:</span> <span class="s">dataquality</span>
+    <span class="na">vendor</span><span class="pi">:</span> <span class="s">Montecarlo</span>
+    <span class="na">spec</span><span class="pi">:</span>
+        <span class="na">field_health</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">table</span><span class="pi">:</span> <span class="s">project:dataset.table_name</span>
+            <span class="s">timestamp_field</span><span class="pi">:</span> <span class="s">created</span>
+        <span class="na">dimension_tracking</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">table</span><span class="pi">:</span> <span class="s">project:dataset.table_name</span>
+            <span class="s">timestamp_field</span><span class="pi">:</span> <span class="s">created</span>
+            <span class="s">field</span><span class="pi">:</span> <span class="s">order_status</span> 
+</code></pre></div><h2 id='sodacl'>SodaCL</h2>
 <blockquote>
 <p>Example of SodaCL extension usage</p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">objectives</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">displayName</span><span class="pi">:</span> <span class="s">Completeness</span>
-  <span class="na">target</span><span class="pi">:</span> <span class="m">98</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
-      <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
-      <span class="na">checks</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
-            <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">extension</span><span class="pi">:</span>
+    <span class="s">$schema</span><span class="pi">:</span> <span class="s">URL</span>
+    <span class="na">kind</span><span class="pi">:</span> <span class="s">dataquality</span>
+    <span class="na">vendor</span><span class="pi">:</span> <span class="s">SodaCL</span>
+    <span class="na">spec</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">for each column</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">member_id</span><span class="pi">,</span> <span class="nv">gender</span><span class="pi">,</span> <span class="nv">age_band</span><span class="pi">]</span>
+        <span class="na">checks</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">not null</span><span class="pi">:</span>
+                <span class="na">fail</span><span class="pi">:</span> <span class="s">when &gt; 2%</span> <span class="c1"># Fail if more than 2% of records are null</span>
 
 
 </code></pre></div>

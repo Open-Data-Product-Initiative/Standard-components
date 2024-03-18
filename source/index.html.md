@@ -39,13 +39,13 @@ A library of standardized core components and extentions to be used for example 
 
 These are shared core components between data economy standards. By default the core components are very limited and compact to keep the overall standards easy to adopt. The usecases can be extended by expanding the core components with standardized versioned extensions. 
 
-Extension pattern is universal and same in all core components. The core components can be extended with two distinctive patterns. Internal (locally used) woould use "x-local" element and inside it is your local extension content. 
+Extension pattern is universal and same in all core components. The core components can be extended with two distinctive patterns. Internal (locally used) woould use "x-localized" element and inside it is your local extension content. 
 
 > Example of local extension usage:
 
 ```yml
 
-x-local:
+x-localized:
  
 ```
 

@@ -49,7 +49,7 @@ x-localized:
  
 ```
 
-Standardized extensions would be implemented with "x-standardized" element. More examples of those you can find from the core components below. 
+Standardized extensions would be implemented with "x-standardized" element. Standarized extensions are grouped following the classes of core compoments. As an example, core object "Access" related standardized extensions are under "Access Extensions". More examples of those you can find from the core components below. 
 
 > Example of standardized extension usage:
 

@@ -362,9 +362,6 @@
                   <li>
                     <a href="#stakeholders" class="toc-h2 toc-link" data-title="Stakeholders">Stakeholders</a>
                   </li>
-                  <li>
-                    <a href="#use-case-examples" class="toc-h2 toc-link" data-title="Use case examples">Use case examples</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -403,6 +400,17 @@
           </li>
           <li>
             <a href="#stakeholder-extensions" class="toc-h1 toc-link" data-title="Stakeholder Extensions">Stakeholder Extensions</a>
+          </li>
+          <li>
+            <a href="#use-case-examples" class="toc-h1 toc-link" data-title="Use case examples">Use case examples</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#usecase-1-title" class="toc-h2 toc-link" data-title="usecase 1 - title">usecase 1 - title</a>
+                  </li>
+                  <li>
+                    <a href="#usecase-2-title" class="toc-h2 toc-link" data-title="usecase 2 - title">usecase 2 - title</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -636,49 +644,7 @@
 <td>Intended to be used with <em>value-based</em> pricing plan. Provide url to value simulator in which customer can see the value in various cases. In the simulator customer might be able to input own variables to match their exact case and see the gained value.</td>
 </tr>
 </tbody></table>
-<h2 id='provider'>Provider</h2><h2 id='roles'>Roles</h2><h2 id='sla'>SLA</h2><h2 id='stakeholders'>Stakeholders</h2><h2 id='use-case-examples'>Use case examples</h2><h3 id='usecase-1-title'>usecase 1 - title</h3>
-<p><strong>Description:</strong> tbd </p>
-
-<blockquote>
-<p>Example of Pricing component usage with some of the optional elements and attributes:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">pricingPlans</span><span class="pi">:</span>
-  <span class="na">en</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium subscription 1 year</span>
-    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
-    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
-    <span class="na">minPrice</span><span class="pi">:</span> <span class="m">5.00</span>
-    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">15.000</span>
-    <span class="na">additionalPrice</span><span class="pi">:</span> <span class="m">0.02</span>
-  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium Package</span>
-    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
-    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
-    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">20.00</span>
-    <span class="na">valueAddedTaxIncluded</span><span class="pi">:</span> <span class="s">False</span>
-
-</code></pre></div><h3 id='usecase-2-title'>usecase 2 - title</h3>
-<p><strong>Description:</strong> tbd </p>
-
-<blockquote>
-<p>Example of Pricing component usage with some of the optional elements and attributes:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code>
-<span class="na">pricingPlans</span><span class="pi">:</span>
-  <span class="na">en</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium subscription 1 year</span>
-    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
-    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
-    <span class="na">minPrice</span><span class="pi">:</span> <span class="m">5.00</span>
-    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">15.000</span>
-    <span class="na">additionalPrice</span><span class="pi">:</span> <span class="m">0.02</span>
-  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium Package</span>
-    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
-    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
-    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">20.00</span>
-    <span class="na">valueAddedTaxIncluded</span><span class="pi">:</span> <span class="s">False</span>
-
-</code></pre></div><h1 id='access-extensions'>Access extensions</h1>
+<h2 id='provider'>Provider</h2><h2 id='roles'>Roles</h2><h2 id='sla'>SLA</h2><h2 id='stakeholders'>Stakeholders</h2><h1 id='access-extensions'>Access extensions</h1>
 <p>Components for access </p>
 <h1 id='data-quality-extensions'>Data Quality Extensions</h1>
 <p>The availability of the service/data. Use common SLA apprach to define percentage of guaranteed availability</p>
@@ -844,7 +810,49 @@
 </tbody></table>
 <h1 id='stakeholder-extensions'>Stakeholder Extensions</h1>
 <p>Stakeholders components</p>
+<h1 id='use-case-examples'>Use case examples</h1><h2 id='usecase-1-title'>usecase 1 - title</h2>
+<p><strong>Description:</strong> tbd </p>
 
+<blockquote>
+<p>Example of Pricing component usage with some of the optional elements and attributes:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+<span class="na">pricingPlans</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium subscription 1 year</span>
+    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
+    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
+    <span class="na">minPrice</span><span class="pi">:</span> <span class="m">5.00</span>
+    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">15.000</span>
+    <span class="na">additionalPrice</span><span class="pi">:</span> <span class="m">0.02</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium Package</span>
+    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
+    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
+    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">20.00</span>
+    <span class="na">valueAddedTaxIncluded</span><span class="pi">:</span> <span class="s">False</span>
+
+</code></pre></div><h2 id='usecase-2-title'>usecase 2 - title</h2>
+<p><strong>Description:</strong> tbd </p>
+
+<blockquote>
+<p>Example of Pricing component usage with some of the optional elements and attributes:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+<span class="na">pricingPlans</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium subscription 1 year</span>
+    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
+    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
+    <span class="na">minPrice</span><span class="pi">:</span> <span class="m">5.00</span>
+    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">15.000</span>
+    <span class="na">additionalPrice</span><span class="pi">:</span> <span class="m">0.02</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Premium Package</span>
+    <span class="na">priceCurrency</span><span class="pi">:</span> <span class="s">EUR</span>
+    <span class="na">price</span><span class="pi">:</span> <span class="m">10.00</span>
+    <span class="na">maxPrice</span><span class="pi">:</span> <span class="m">20.00</span>
+    <span class="na">valueAddedTaxIncluded</span><span class="pi">:</span> <span class="s">False</span>
+
+</code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">

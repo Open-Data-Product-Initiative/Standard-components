@@ -426,8 +426,24 @@
 <h1 id='core-components'>Core Components</h1>
 <p>These are shared core components between data economy standards. By default the core components are very limited and compact to keep the overall standards easy to adopt. The usecases can be extended by expanding the core components with standardized versioned extensions. </p>
 
-<p>Extension pattern is universal and same in all core components. </p>
-<h2 id='access'>Access</h2><h2 id='data'>Data</h2><h2 id='data-quality'>Data Quality</h2>
+<p>Extension pattern is universal and same in all core components. The core components can be extended with two distinctive patterns. Internal (locally used) woould use &quot;x-local&quot; element and inside it is your local extension content. </p>
+
+<blockquote>
+<p>Example of local extension usage:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+<span class="na">x-local</span><span class="pi">:</span>
+
+</code></pre></div>
+<p>Standardized extensions would be implemented with &quot;x-standardized&quot; element. More examples of those you can find from the core components below. </p>
+
+<blockquote>
+<p>Example of standardized extension usage:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code>
+<span class="na">x-standardized</span><span class="pi">:</span>
+
+</code></pre></div><h2 id='access'>Access</h2><h2 id='data'>Data</h2><h2 id='data-quality'>Data Quality</h2>
 <p>Data quality extensions defined separately.</p>
 <h2 id='pricing'>Pricing</h2>
 <p>Pricing is the process whereby a business sets the price at which it will sell its products and services. Pricing <strong>OBJECT</strong> consists of mandatory and optional attributes. This element contains pricing plans related data to be used for example in displaying the items in a marketplace or as part of a data contract.   </p>

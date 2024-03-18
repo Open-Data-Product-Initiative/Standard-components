@@ -35,11 +35,11 @@ meta:
 A library of standardized core components and extentions to be used for example in Data Contracts and Data Product Sopecications. Solution vendors are invited to add extensions. 
 
 
-# Core Components
+# Introduction
 
-These are shared core components between data economy standards. By default the core components are very limited and compact to keep the overall standards easy to adopt. The usecases can be extended by expanding the core components with standardized versioned extensions. 
+**Core components** are shared between data economy standards. By default the core components are very limited and compact to keep the overall standards easy to adopt. 
 
-Extension pattern is universal and same in all core components. The core components can be extended with two distinctive patterns. Internal (locally used) woould use "x-localized" element and inside it is your local extension content. 
+The usecases can be extended by expanding the core components with localized and standardized versioned **extensions**. Extension pattern is universal and same in all core components. The core components can be extended with two distinctive patterns. Internal (locally used) woould use "x-localized" element and inside it is your local extension content. 
 
 > Example of local extension usage:
 
@@ -58,6 +58,9 @@ Standardized extensions would be implemented with "x-standardized" element. Stan
 x-standardized:
  
 ```
+
+# Core Components
+
 
 ## Access
 

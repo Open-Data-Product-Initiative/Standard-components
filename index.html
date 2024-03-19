@@ -677,7 +677,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>extension</td>
+<td>x-standardized</td>
 <td>element</td>
 <td>-</td>
 <td>Binds together extension. This is used only in the example. This is part of unified method to add extensions to various data economy standards</td>
@@ -692,7 +692,7 @@
 <td>kind</td>
 <td>attribute</td>
 <td>string</td>
-<td>Defines the class in which extension belongs to. Options: dataquality, access, pricing, sla, stakeholders,  provider</td>
+<td>Defines the core component class this component extends. Options: dataquality, access, pricing, sla, stakeholders,  provider</td>
 </tr>
 <tr>
 <td>vendor</td>
@@ -708,10 +708,21 @@
 </tr>
 </tbody></table>
 <h2 id='montecarlo'>Montecarlo</h2>
+<p>Monte Carlo simulation is utilized as a data quality tool to assess the robustness and reliability of datasets through probabilistic modeling. Monte Carlo provides a method to validate data quality measures and assumptions, ensuring the accuracy and integrity of the dataset.</p>
+
+<p>Monte Carlo offers a variety of monitors so that data teams can:</p>
+
+<ul>
+<li>Instantly deploy broad monitoring of your data pipelines, with no manual configuration. These monitors use metadata whenever possible so that compute costs are minimal.</li>
+<li>Strategically deploy deep quality monitoring on the tables that are more important. These monitors directly query the data, to alert to shifts in the data&#39;s profile, failed validations, and more.</li>
+</ul>
+
+<p>Detailed documentation explaining options and structure you can add under &quot;spec&quot; element: https://docs.getmontecarlo.com/docs/monitors-overview  </p>
+
 <blockquote>
 <p>Example of Montecarlo extension usage</p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">extension</span><span class="pi">:</span>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">x-standardized</span><span class="pi">:</span>
     <span class="s">$schema</span><span class="pi">:</span> <span class="s">URL</span>
     <span class="na">kind</span><span class="pi">:</span> <span class="s">dataquality</span>
     <span class="na">vendor</span><span class="pi">:</span> <span class="s">Montecarlo</span>
@@ -731,7 +742,7 @@
 <blockquote>
 <p>Example of SodaCL extension usage</p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">extension</span><span class="pi">:</span>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">x-standardized</span><span class="pi">:</span>
     <span class="s">$schema</span><span class="pi">:</span> <span class="s">URL</span>
     <span class="na">kind</span><span class="pi">:</span> <span class="s">dataquality</span>
     <span class="na">vendor</span><span class="pi">:</span> <span class="s">SodaCL</span>

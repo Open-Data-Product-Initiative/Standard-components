@@ -68,9 +68,6 @@ x-standardized:
 
 ## Data Quality
 
-
-Data quality extensions defined separately.
-
 ## Pricing
 
 Pricing is the process whereby a business sets the price at which it will sell its products and services. Pricing **OBJECT** consists of mandatory and optional attributes. This element contains pricing plans related data to be used for example in displaying the items in a marketplace or as part of a data contract.   
@@ -96,52 +93,31 @@ Supported pricing models include:
 
 **Mandatory attributes and elements**
 
-> Example of Pricing component usage with manadatory elements and attributes. Example language is english.:
+> Example of Pricing component usage with manadatory elements and attributes:
 
 ```yml
 
 pricingPlans:
-  en:
-  - name: Premium subscription 1 year
-    priceCurrency: EUR
-    price: 50.00
-    billingDuration: year
-    unit: recurring
-    maxTransactionQuantity: unlimited
-    offering:
-      - High Quality Pets data
-      - Unlimited transactions
-      - Billed annually 
-  - name: Premium Package Monthly
-    priceCurrency: EUR
-    price: 5.00
-    billingDuration: month
-    unit: recurring
-    maxTransactionQuantity: unlimited
-    offering:
-      - High Quality Pets data
-      - Unlimited transactions
-      - Billed monthly 
-  - name: Freemium Package
-    priceCurrency: EUR
-    price: 0.00
-    billingDuration: month
-    unit: recurring
-    maxTransactionQuantity: 1000
-    offering:
-      - High Quality Pets data
-      - Free to use, no cost at all!
-      - Fair amount of transactions for testing and small business 
-  - name: Revenue sharing
-    priceCurrency: percentage
-    price: 5.50
-    billingDuration: month
-    unit: revenue-sharing
-    maxTransactionQuantity: 20000
-    offering:
-      - High Quality Pets data
-      - No upfront fee
-      - Billed monthly 
+- name: Premium subscription 1 year
+  priceCurrency: EUR
+  price: 50.00
+  billingDuration: year
+  unit: recurring
+  maxTransactionQuantity: unlimited
+  offering:
+    - High Quality Pets data
+    - Unlimited transactions
+    - Billed annually 
+- name: Premium Package Monthly
+  priceCurrency: EUR
+  price: 5.00
+  billingDuration: month
+  unit: recurring
+  maxTransactionQuantity: unlimited
+  offering:
+    - High Quality Pets data
+    - Unlimited transactions
+    - Billed monthly 
  
 ```
 
@@ -155,40 +131,6 @@ pricingPlans:
 | **unit** | string | One of: One-time-payment, Pay-per-use, Recurring, Revenue-sharing, Data-volume , Pay-what-you-want, Freemium, Open-data, Value-based, On-request | **REQUIRED** One-time-payment is for single time purchase purposes, further purchaces are not intended to continue under same agreement. <br/><br/> *Pay-per-use* is intended for continuous usage and price set is for each successful usage action. <br/><br/> *Recurrring* is intended for continuous time period plans. <br/><br/>*Revenue sharing* is a performance-based income model. An effective revenue sharing deal structure is offering your expertise to a business owner to help them grow their business. In return, you get paid a percentage of the revenue as a royalty fee. <br/><br/> *Freemium* is for free access. Use this option also for open data. <br/><br/> *Data-volume* is for data amount based pricing in which customer pays based on the served data amount. The price is always for 1GB of data. <br/><br/> *Pay-what-you-want*  is a pricing system where buyers pay any desired amount for a given commodity, sometimes including zero. In some cases, a minimum (floor) price may be set, and/or a suggested price may be indicated as guidance for the buyer. The buyer can also select an amount higher than the standard price for the commodity. If the floor price is set, use *minPrice* attribute. <br/><br/> *Open-data*  is an explicit pricing plan category for open data. By default open data should be free, but in some cases it can have a price. <br/><br/> *Value-based* is value-based selling unit. Present the outcome of your story with solid data and a measurable impact with help of *offering* attribute. Example: “We can lower the energy bill in heating by $8-13/square meter in a year. Try out simulator to calculate your value!”. Use optional *valueSimulator* attribute to provide link (URL) to value simulator you have created. In order to set base fee for value-based plan, you can for example set monthly (*billingDuration*) plan with base see with help of *minPrice* attribute. <br/><br/> *On-request* is for plans in which customer is given access to data product after contacting provider. Use provider contact information in providing means to contact data product provider for access permissions request.  |
 | **maxTransactionQuantity** | Integer |  Integer | **REQUIRED** The maximum transaction quantity for the given billing duration. Use this to define for example monthly (or any other period) request limit to the data product. Note! If you want to set unlimited use, value must be 0 (zero). |
 | **offering**  | string | array | **REQUIRED** The element that contains pricing plan content as array of strings. Think of this as the list of what is included in the pricing plan and what you offer in return to the price asked. Use the language defined in the *plan* |
-
-**Optional attributes and elements**
-
-> Example of Pricing component usage with some of the optional elements and attributes:
-
-```yml
-
-pricingPlans:
-  en:
-  - name: Premium subscription 1 year
-    priceCurrency: EUR
-    price: 10.00
-    minPrice: 5.00
-    maxPrice: 15.000
-    additionalPrice: 0.02
-  - name: Premium Package
-    priceCurrency: EUR
-    price: 10.00
-    maxPrice: 20.00
-    valueAddedTaxIncluded: False
-
-```
-
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
-|---|---|---|---|
-|  minPrice | string  | -  | The lowest price if the price is a range. If dynamic pricing is used with this product, this is the lowest price allowed. In dynamic pricing businesses are able to change prices based on algorithms that take into account competitor pricing, supply and demand, and other external factors in the market. Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols. |
-|  maxPrice | string  | -  | The highest price if the price is a range. If dynamic pricing is used with this product, this is the highest price allowed. Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols. |
-| valueAddedTaxIncluded  | boolean  | true/false  | Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.  |
-| valueAddedTaxPercentage  | Integer  | Number percentage value, range 0-100 | Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.   |
-| validFrom  | DateTime  |  A combination of date and time in [ISO 8601](https://www.ionos.com/digitalguide/websites/web-development/iso-8601/) format yyyy-MM-dd'T'HH:mm:ss.SSSZ. | The date when the item becomes valid. |
-| validTo  | DateTime  | A combination of date and time in [ISO 8601](https://www.ionos.com/digitalguide/websites/web-development/iso-8601/) format yyyy-MM-dd'T'HH:mm:ss.SSSZ.  | The date after when the item is not valid. |
-| additionalPrice  | string  | -  | This is used to define fees for usage which exceeds the defined max transaction quantity. This value is for each additional transaction. Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols. |
-|  maxDataQuantity | Integer  | -  | The maximum amount of data transferred during the billing duration. Unit is GB. |
-|  valueSimulator  | url | valid url | Intended to be used with *value-based* pricing plan. Provide url to value simulator in which customer can see the value in various cases. In the simulator customer might be able to input own variables to match their exact case and see the gained value. |
 
 
 ## Provider
